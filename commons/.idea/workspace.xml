@@ -1,8 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="540e0ac2-ffde-460d-a6dc-2e27f93cb021" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hd/im/proto/HDIMProtocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hd/im/proto/HDIMProtocol.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hd/im/proto/Tester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hd/im/proto/Tester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hd/im/utils/AESUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hd/im/utils/AESUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proto/src/main/proto/HDIMProtocol.proto" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proto/src/main/resources/HDIMProtocol.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../proto/src/main/resources/HDIMProtocol.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +53,47 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.fileTypes" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../proto" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.hd.im.proto" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Tester">
+    <configuration name="AESUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.hd.im.utils.AESUtils" />
+      <module name="commons" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hd.im.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.hd.im.proto.Tester" />
+      <module name="commons" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hd.im.proto.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Tester" />
+        <item itemvalue="Application.AESUtils" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -44,17 +106,52 @@
       <option name="presentableId" value="Default" />
       <updated>1589047794356</updated>
       <workItem from="1589047797657" duration="93000" />
-      <workItem from="1589047897753" duration="124000" />
+      <workItem from="1589047897753" duration="1640000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="WindowStateProjectService">
-    <state x="394" y="211" width="1340" height="711" key="SettingsEditor" timestamp="1589048013734">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1589048039142">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="394" y="211" width="1340" height="711" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1589048013734" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589048039142" />
+    <state width="1877" height="233" key="GridCell.Tab.0.bottom" timestamp="1589050666817">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="233" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589050666817" />
+    <state width="1877" height="233" key="GridCell.Tab.0.center" timestamp="1589050666817">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="233" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589050666817" />
+    <state width="1877" height="233" key="GridCell.Tab.0.left" timestamp="1589050666817">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="233" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589050666817" />
+    <state width="1877" height="233" key="GridCell.Tab.0.right" timestamp="1589050666817">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="233" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589050666817" />
+    <state x="742" y="240" key="RollbackChangesDialog" timestamp="1589050381019">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="742" y="240" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589050381019" />
+    <state x="394" y="211" width="1340" height="711" key="SettingsEditor" timestamp="1589050061699">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="394" y="211" width="1340" height="711" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1589050061699" />
   </component>
 </project>
