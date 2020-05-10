@@ -1,5 +1,6 @@
 package com.hd.im;
 
+import com.hd.im.handler.IMServerIdleHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
@@ -24,50 +25,53 @@ import io.netty.channel.socket.nio.NioSocketChannel;
 @SpringBootApplication
 public class ImServerApplication {
 
-	private static Logger logger = LoggerFactory.getLogger(ImServerApplication.class);
+    private static Logger logger = LoggerFactory.getLogger(ImServerApplication.class);
 
-	public static void main(String[] args) throws InterruptedException {
-		SpringApplication.run(ImServerApplication.class, args);
+    public static void main(String[] args) throws InterruptedException {
+        SpringApplication.run(ImServerApplication.class, args);
 
-		NioEventLoopGroup boosGroup = new NioEventLoopGroup(1);
-		NioEventLoopGroup workerGroup = new NioEventLoopGroup();
+        NioEventLoopGroup boosGroup   = new NioEventLoopGroup(1);
+        NioEventLoopGroup workerGroup = new NioEventLoopGroup();
 
-		try {
-			ServerBootstrap serverBootstrap = new ServerBootstrap();
-			serverBootstrap.group(boosGroup, workerGroup);
-			serverBootstrap.channel(NioServerSocketChannel.class);
-			serverBootstrap.option(ChannelOption.SO_BACKLOG, 1024);
-			serverBootstrap.childOption(ChannelOption.SO_KEEPALIVE, true);
+        try {
+            ServerBootstrap serverBootstrap = new ServerBootstrap();
+            serverBootstrap.group(boosGroup, workerGroup);
+            serverBootstrap.channel(NioServerSocketChannel.class);
+            serverBootstrap.option(ChannelOption.SO_BACKLOG, 1024);
+            serverBootstrap.childOption(ChannelOption.SO_KEEPALIVE, true);
 
-			serverBootstrap.childHandler(new ChannelInitializer<NioSocketChannel>() {
+            serverBootstrap.childHandler(new ChannelInitializer<NioSocketChannel>() {
 
-				@Override
-				public void channelActive(ChannelHandlerContext ctx) throws Exception {
-					logger.info("client has connect.");
-				}
+                @Override
+                public void channelActive(ChannelHandlerContext ctx) throws Exception {
+                    logger.info("client has connect.");
+                }
 
-				@Override
-				protected void initChannel(NioSocketChannel nioSocketChannel) throws Exception {
-					ChannelPipeline pipeline = nioSocketChannel.pipeline();
-					pipeline.addLast(new IMServerFrameDecoder());
-					pipeline.addLast(new IMServerProtocolDecryptDecoder());
-					pipeline.addLast(new IMServerProtocolDecoder());
+                @Override
+                protected void initChannel(NioSocketChannel nioSocketChannel) throws Exception {
+                    ChannelPipeline pipeline = nioSocketChannel.pipeline();
 
-					pipeline.addLast(new IMServerLoginHandler());
-					pipeline.addLast(new IMServerPublishHandler());
-				}
-			});
+                    pipeline.addLast("idleCheck", new IMServerIdleHandler());
 
-			ChannelFuture channelFuture = serverBootstrap.bind(2020).sync();
-			channelFuture.addListener((e) -> {
-				if (e.isSuccess()) {
-					logger.info("im server is bind in {}", 2020);
-				}
-			});
-			channelFuture.channel().closeFuture().sync();
-		} finally {
-			boosGroup.shutdownGracefully();
-			workerGroup.shutdownGracefully();
-		}
-	}
+                    pipeline.addLast(new IMServerFrameDecoder());
+                    pipeline.addLast(new IMServerProtocolDecryptDecoder());
+                    pipeline.addLast(new IMServerProtocolDecoder());
+
+                    pipeline.addLast(new IMServerLoginHandler());
+                    pipeline.addLast(new IMServerPublishHandler());
+                }
+            });
+
+            ChannelFuture channelFuture = serverBootstrap.bind(2020).sync();
+            channelFuture.addListener((e) -> {
+                if (e.isSuccess()) {
+                    logger.info("im server is bind in {}", 2020);
+                }
+            });
+            channelFuture.channel().closeFuture().sync();
+        } finally {
+            boosGroup.shutdownGracefully();
+            workerGroup.shutdownGracefully();
+        }
+    }
 }

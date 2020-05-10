@@ -20,9 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0589019d-d006-4287-b8a3-86b1777b3222" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../commons/src/main/java/com/hd/im/proto/HDIMProtocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/../commons/src/main/java/com/hd/im/proto/HDIMProtocol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/proto/HDIMProtocol.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/HDIMProtocol.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/HDIMProtocol.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/IMServerIdleHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/HDIMProtocol.desc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/ImServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/ImServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/IMServerLoginHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/IMServerLoginHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/Client.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,6 +67,7 @@
       <option name="presentableId" value="Default" />
       <updated>1589048040976</updated>
       <workItem from="1589048043770" duration="1395000" />
+      <workItem from="1589117437477" duration="561000" />
     </task>
     <servers />
   </component>
@@ -81,5 +84,12 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="667" y="320" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589117492402">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="667" y="320" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1589117492402" />
   </component>
 </project>

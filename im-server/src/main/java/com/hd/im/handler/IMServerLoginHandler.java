@@ -2,12 +2,12 @@ package com.hd.im.handler;
 
 import com.hd.im.cache.MemorySessionStore;
 import com.hd.im.channel.NettyChannelKeys;
-import com.hd.im.context.ApplicationContextHolder;
 import com.hd.im.entity.UserSession;
 import com.hd.im.proto.HDIMProtocol;
 import com.hd.im.proto.HDIMProtocol.Login;
 
 import cn.hutool.core.lang.UUID;
+import com.hd.im.redis.RedisStandalone;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.util.Attribute;
@@ -20,6 +20,7 @@ public class IMServerLoginHandler extends SimpleChannelInboundHandler<HDIMProtoc
         /* 获取token */
         String token = msg.getToken();
         //TODO 解密token获取用户ID与ClientId
+        RedisStandalone.REDIS.get(token);
 
         String                 uuid    = UUID.fastUUID().toString();
         Attribute<UserSession> session = ctx.channel().attr(NettyChannelKeys.USER_SESSION);
