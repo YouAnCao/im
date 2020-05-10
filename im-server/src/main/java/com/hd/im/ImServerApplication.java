@@ -5,8 +5,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.hd.im.codec.IMServerDecoder;
-import com.hd.im.codec.IMServerDecryptDecoder;
+import com.hd.im.codec.IMServerProtocolDecoder;
+import com.hd.im.codec.IMServerProtocolDecryptDecoder;
 import com.hd.im.codec.IMServerFrameDecoder;
 import com.hd.im.handler.IMServerLoginHandler;
 import com.hd.im.handler.IMServerPublishHandler;
@@ -50,8 +50,8 @@ public class ImServerApplication {
 				protected void initChannel(NioSocketChannel nioSocketChannel) throws Exception {
 					ChannelPipeline pipeline = nioSocketChannel.pipeline();
 					pipeline.addLast(new IMServerFrameDecoder());
-					pipeline.addLast(new IMServerDecryptDecoder());
-					pipeline.addLast(new IMServerDecoder());
+					pipeline.addLast(new IMServerProtocolDecryptDecoder());
+					pipeline.addLast(new IMServerProtocolDecoder());
 
 					pipeline.addLast(new IMServerLoginHandler());
 					pipeline.addLast(new IMServerPublishHandler());

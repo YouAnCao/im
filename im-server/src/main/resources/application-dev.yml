@@ -1,2 +1,14 @@
 spring:
   profiles: dev
+
+#redis配置
+redis:
+  host: 127.0.0.1
+  port: 6379
+  password: 123456
+  maxTotal: 200
+  maxIdle: 200
+  minIdle: 10
+  maxWait: 2000
+  maxWaitMillis: 3000
+  timeout: 3000

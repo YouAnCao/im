@@ -20,11 +20,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="540e0ac2-ffde-460d-a6dc-2e27f93cb021" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hd/im/proto/HDIMProtocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hd/im/proto/HDIMProtocol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hd/im/proto/Tester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hd/im/proto/Tester.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hd/im/utils/AESUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hd/im/utils/AESUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../proto/src/main/proto/HDIMProtocol.proto" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../proto/src/main/resources/HDIMProtocol.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../proto/src/main/resources/HDIMProtocol.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hd/im/redis/RedisConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hd/im/redis/RedisConfigException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hd/im/redis/RedisStandalone.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/codec/IMServerProtocolDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/codec/IMServerProtocolDecryptDecoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/config/RedisAutoConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/context/ApplicationContextAwareImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/context/ApplicationContextHolder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/propertis/RedisProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/ImServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/ImServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/cache/MemorySessionStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/cache/MemorySessionStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/codec/IMServerDecoder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/codec/IMServerDecryptDecoder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/IMServerLoginHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/IMServerLoginHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/resources/application-dev.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,12 +64,15 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../proto" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/hd/im/redis" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.hd.im.proto" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\dev\workspace\im.dev\commons\src\main\java\com\hd\im\redis" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Tester">
@@ -107,6 +121,8 @@
       <updated>1589047794356</updated>
       <workItem from="1589047797657" duration="93000" />
       <workItem from="1589047897753" duration="1640000" />
+      <workItem from="1589101596052" duration="1058000" />
+      <workItem from="1589106481755" duration="2994000" />
     </task>
     <servers />
   </component>
@@ -123,28 +139,29 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1589048039142">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1589106492933">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589048039142" />
-    <state width="1877" height="233" key="GridCell.Tab.0.bottom" timestamp="1589050666817">
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589106492933" />
+    <state width="1877" height="437" key="GridCell.Tab.0.bottom" timestamp="1589112643617">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="233" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589050666817" />
-    <state width="1877" height="233" key="GridCell.Tab.0.center" timestamp="1589050666817">
+    <state width="1877" height="437" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589112643617" />
+    <state width="1877" height="437" key="GridCell.Tab.0.center" timestamp="1589112643617">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="233" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589050666817" />
-    <state width="1877" height="233" key="GridCell.Tab.0.left" timestamp="1589050666817">
+    <state width="1877" height="437" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589112643617" />
+    <state width="1877" height="437" key="GridCell.Tab.0.left" timestamp="1589112643617">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="233" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589050666817" />
-    <state width="1877" height="233" key="GridCell.Tab.0.right" timestamp="1589050666817">
+    <state width="1877" height="437" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589112643617" />
+    <state width="1877" height="437" key="GridCell.Tab.0.right" timestamp="1589112643617">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="233" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589050666817" />
+    <state width="1877" height="437" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589112643617" />
     <state x="742" y="240" key="RollbackChangesDialog" timestamp="1589050381019">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

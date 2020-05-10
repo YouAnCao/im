@@ -14,33 +14,33 @@ import java.util.concurrent.ConcurrentHashMap;
  **/
 public class MemorySessionStore {
 
-	private static MemorySessionStore memorySessionStore;
+    private static MemorySessionStore memorySessionStore;
 
-	public static MemorySessionStore getInstance() {
-		if (memorySessionStore == null) {
-			synchronized (MemorySessionStore.class) {
-				if (memorySessionStore == null) {
-					memorySessionStore = new MemorySessionStore();
-				}
-			}
-		}
-		return memorySessionStore;
-	}
+    public static MemorySessionStore getInstance() {
+        if (memorySessionStore == null) {
+            synchronized (MemorySessionStore.class) {
+                if (memorySessionStore == null) {
+                    memorySessionStore = new MemorySessionStore();
+                }
+            }
+        }
+        return memorySessionStore;
+    }
 
-	private final static ConcurrentHashMap<String, ChannelHandlerContext> CONNECTIONS = new ConcurrentHashMap<>();
+    private final static ConcurrentHashMap<String, ChannelHandlerContext> CONNECTIONS = new ConcurrentHashMap<>();
 
-	public void sendMessage(String clientId, byte[] data) {
-		ChannelHandlerContext channelHandlerContext = CONNECTIONS.get(clientId);
-		if (channelHandlerContext != null && channelHandlerContext.channel().isOpen()) {
-			ByteBuf byteBuf = channelHandlerContext.alloc().buffer(data.length);
-			channelHandlerContext.writeAndFlush(byteBuf);
-			byteBuf.release();
-		}
-	}
+    public void sendMessage(String clientId, byte[] data) {
+        ChannelHandlerContext channelHandlerContext = CONNECTIONS.get(clientId);
+        if (channelHandlerContext != null && channelHandlerContext.channel().isOpen()) {
+            ByteBuf byteBuf = channelHandlerContext.alloc().buffer(data.length);
+            channelHandlerContext.writeAndFlush(byteBuf);
+            byteBuf.release();
+        }
+    }
 
-	public void saveClient(String clientId, ChannelHandlerContext channelHandlerContext) {
-		if (channelHandlerContext != null && channelHandlerContext.channel().isActive()) {
-			CONNECTIONS.put(clientId, channelHandlerContext);
-		}
-	}
+    public void saveClient(String clientId, ChannelHandlerContext channelHandlerContext) {
+        if (channelHandlerContext != null && channelHandlerContext.channel().isActive()) {
+            CONNECTIONS.put(clientId, channelHandlerContext);
+        }
+    }
 }
