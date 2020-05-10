@@ -20,10 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="540e0ac2-ffde-460d-a6dc-2e27f93cb021" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hd/im/entity/UserSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hd/im/entity/UserSession.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/codec/IMServerProtocolEncryptEncoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hd/im/proto/HDIMProtocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hd/im/proto/HDIMProtocol.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/codec/IMServerProtocolDecryptDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/codec/IMServerProtocolDecryptDecoder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/IMServerLoginHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/IMServerLoginHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../proto/src/main/resources/HDIMProtocol.desc" beforeDir="false" afterPath="$PROJECT_DIR$/../proto/src/main/resources/HDIMProtocol.desc" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +113,7 @@
       <workItem from="1589047797657" duration="93000" />
       <workItem from="1589047897753" duration="1640000" />
       <workItem from="1589101596052" duration="1058000" />
-      <workItem from="1589106481755" duration="4280000" />
+      <workItem from="1589106481755" duration="4721000" />
     </task>
     <servers />
   </component>
@@ -141,22 +141,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589106492933" />
-    <state width="1877" height="437" key="GridCell.Tab.0.bottom" timestamp="1589112643617">
+    <state width="1877" height="219" key="GridCell.Tab.0.bottom" timestamp="1589123113636">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="437" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589112643617" />
-    <state width="1877" height="437" key="GridCell.Tab.0.center" timestamp="1589112643617">
+    <state width="1877" height="219" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589123113636" />
+    <state width="1877" height="219" key="GridCell.Tab.0.center" timestamp="1589123113636">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="437" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589112643617" />
-    <state width="1877" height="437" key="GridCell.Tab.0.left" timestamp="1589112643617">
+    <state width="1877" height="219" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589123113636" />
+    <state width="1877" height="219" key="GridCell.Tab.0.left" timestamp="1589123113636">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="437" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589112643617" />
-    <state width="1877" height="437" key="GridCell.Tab.0.right" timestamp="1589112643617">
+    <state width="1877" height="219" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589123113636" />
+    <state width="1877" height="219" key="GridCell.Tab.0.right" timestamp="1589123113636">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="437" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589112643617" />
+    <state width="1877" height="219" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589123113636" />
     <state x="742" y="240" key="RollbackChangesDialog" timestamp="1589050381019">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -35,6 +35,14 @@ public final class HDIMProtocol {
      * <code>PONG = 5;</code>
      */
     PONG(5, 5),
+    /**
+     * <code>PUBLISH = 6;</code>
+     */
+    PUBLISH(6, 6),
+    /**
+     * <code>PUBLISH_RESPONSE = 7;</code>
+     */
+    PUBLISH_RESPONSE(7, 7),
     ;
 
     /**
@@ -61,6 +69,14 @@ public final class HDIMProtocol {
      * <code>PONG = 5;</code>
      */
     public static final int PONG_VALUE = 5;
+    /**
+     * <code>PUBLISH = 6;</code>
+     */
+    public static final int PUBLISH_VALUE = 6;
+    /**
+     * <code>PUBLISH_RESPONSE = 7;</code>
+     */
+    public static final int PUBLISH_RESPONSE_VALUE = 7;
 
 
     public final int getNumber() { return value; }
@@ -73,6 +89,8 @@ public final class HDIMProtocol {
         case 3: return LOGIN_OUT_RESPONSE;
         case 4: return PING;
         case 5: return PONG;
+        case 6: return PUBLISH;
+        case 7: return PUBLISH_RESPONSE;
         default: return null;
       }
     }
@@ -639,9 +657,9 @@ public final class HDIMProtocol {
       }
 
       public Login buildPartial() {
-        Login result = new Login(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        Login result          = new Login(this);
+        int                from_bitField0_ = bitField0_;
+        int                to_bitField0_   = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
@@ -1443,9 +1461,9 @@ public final class HDIMProtocol {
       }
 
       public ClientInfo buildPartial() {
-        ClientInfo result = new ClientInfo(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        ClientInfo result          = new ClientInfo(this);
+        int                     from_bitField0_ = bitField0_;
+        int                     to_bitField0_   = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
@@ -2290,9 +2308,9 @@ public final class HDIMProtocol {
       }
 
       public LoginResponse buildPartial() {
-        LoginResponse result = new LoginResponse(this);
-        int from_bitField0_ = bitField0_;
-        int to_bitField0_ = 0;
+        LoginResponse result          = new LoginResponse(this);
+        int                        from_bitField0_ = bitField0_;
+        int                        to_bitField0_   = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
           to_bitField0_ |= 0x00000001;
         }
@@ -2550,10 +2568,11 @@ public final class HDIMProtocol {
       "rsion\030\004 \002(\t\"p\n\rLoginResponse\022\023\n\013messageH" +
       "ead\030\001 \002(\003\022\027\n\017userSettingHead\030\002 \002(\003\022\026\n\016us" +
       "erFriendHead\030\003 \002(\003\022\031\n\021friendRequestHead\030" +
-      "\004 \002(\003*d\n\010HeadType\022\t\n\005LOGIN\020\000\022\022\n\016LOGIN_RE" +
-      "SPONSE\020\001\022\r\n\tLOGIN_OUT\020\002\022\026\n\022LOGIN_OUT_RES" +
-      "PONSE\020\003\022\010\n\004PING\020\004\022\010\n\004PONG\020\005*%\n\013PublishTy",
-      "pe\022\006\n\002MS\020\000\022\006\n\002MP\020\001\022\006\n\002MN\020\002"
+      "\004 \002(\003*\207\001\n\010HeadType\022\t\n\005LOGIN\020\000\022\022\n\016LOGIN_R" +
+      "ESPONSE\020\001\022\r\n\tLOGIN_OUT\020\002\022\026\n\022LOGIN_OUT_RE" +
+      "SPONSE\020\003\022\010\n\004PING\020\004\022\010\n\004PONG\020\005\022\013\n\007PUBLISH\020",
+      "\006\022\024\n\020PUBLISH_RESPONSE\020\007*%\n\013PublishType\022\006" +
+      "\n\002MS\020\000\022\006\n\002MP\020\001\022\006\n\002MN\020\002"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
