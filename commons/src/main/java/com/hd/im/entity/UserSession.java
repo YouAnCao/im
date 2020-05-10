@@ -8,20 +8,12 @@ package com.hd.im.entity;
  * @Version: 1.0.0
  **/
 public class UserSession {
-    private String userId;
-    private String clientId;
-    private String aesKey;
-    private Object connect;
+    private String userId;  // 用户ID
+    private String clientId; // 客户端ID
+    private String aesKey; // 客户端AES key
 
     public UserSession() {
 
-    }
-
-    public UserSession(String userId, String clientId, String aesKey, Object connect) {
-        this.userId = userId;
-        this.clientId = clientId;
-        this.aesKey = aesKey;
-        this.connect = connect;
     }
 
     public String getUserId() {
@@ -48,11 +40,4 @@ public class UserSession {
         this.aesKey = aesKey;
     }
 
-    public Object getConnect() {
-        return connect;
-    }
-
-    public void setConnect(Object connect) {
-        this.connect = connect;
-    }
 }

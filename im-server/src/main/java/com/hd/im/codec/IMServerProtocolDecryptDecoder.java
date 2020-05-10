@@ -23,7 +23,7 @@ public class IMServerProtocolDecryptDecoder extends MessageToMessageDecoder<Byte
     protected void decode(ChannelHandlerContext ctx, ByteBuf byteBuf, List<Object> list)
             throws Exception {
         if (byteBuf.readableBytes() > 0) {
-            int op = byteBuf.readByte();
+            int    op  = byteBuf.readByte();
             byte[] dst = new byte[byteBuf.readableBytes()];
             byteBuf.readBytes(dst);
 
@@ -34,10 +34,10 @@ public class IMServerProtocolDecryptDecoder extends MessageToMessageDecoder<Byte
             } else {
                 Attribute<UserSession> session = ctx.channel().attr(NettyChannelKeys.USER_SESSION);
                 if (session == null) {
-
+                    /* 没有登录 */
                 }
                 /* 需要进行完全解密 */
-                byte[] data = Base64.getDecoder().decode(dst);
+                byte[]  data     = Base64.getDecoder().decode(dst);
                 ByteBuf transfer = ctx.alloc().buffer(data.length + 1);
                 transfer.writeByte(op);
                 transfer.writeBytes(data);

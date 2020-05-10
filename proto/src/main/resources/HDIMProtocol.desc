@@ -14,8 +14,10 @@ enum HeadType {
 
 enum PublishType {
     MS = 0;                     // 发送消息
-    MP = 1;                     // 拉取消息
-    MN = 2;                     // 通知新消息
+    MR = 1;                     // 撤回消息
+    MN = 2;                     // 通知消息
+    RMN = 3;                    // 通知撤回消息
+    MP = 4;                     // 拉取消息
 }
 
 message Login {
@@ -39,7 +41,7 @@ message LoginResponse {
 }
 
 message Publish {
-    
+
 }
 
 message MessageContext {
