@@ -1,5 +1,7 @@
 package com.hd.im.codec;
 
+import io.netty.buffer.ByteBuf;
+import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 
 /**
@@ -10,7 +12,7 @@ import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
  */
 public class IMServerFrameDecoder extends LengthFieldBasedFrameDecoder {
 
-	public IMServerFrameDecoder() {
-		super(Integer.MAX_VALUE, 0, 2, 1, 2);
-	}
+    public IMServerFrameDecoder() {
+        super(Integer.MAX_VALUE, 0, 2, 0, 2);
+    }
 }

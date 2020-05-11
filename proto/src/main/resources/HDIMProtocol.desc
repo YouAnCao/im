@@ -1,4 +1,4 @@
-syntax = "proto2";
+syntax = "proto3";
 
 /* 请求头类型 */
 enum HeadType {
@@ -20,30 +20,27 @@ enum PublishType {
     MP = 4;                     // 拉取消息
 }
 
+enum PlatForm {
+    ANDROID = 0;                // android
+    IOS = 1;                    // ios
+}
+
 message Login {
-    required string token = 1;          // 登录token
-    required bytes encryptData = 2;     // 客户端AES加密数据
-    required bytes encryptKey = 3;      // 服务器RSA公钥加密的 客户端AES key
+    string token = 1;          // 登录token
+    bytes encryptData = 2;     // 客户端AES加密数据
+    bytes encryptKey = 3;      // 服务器RSA公钥加密的 客户端AES key
 }
 
 message ClientInfo {
-    required string clientId = 1;       // 客户端ID
-    required string userId = 2;         // 用户ID
-    required string platform = 3;       // 平台
-    required string appVersion = 4;     // app 版本
+    string clientId = 1;       // 客户端ID
+    string userId = 2;         // 用户ID
+    uint32 platform = 3;       // 平台来源 参考枚举值PlatForm
+    string appVersion = 4;     // app 版本
 }
 
 message LoginResponse {
-    required int64 messageHead = 1;         // 最新消息头
-    required int64 userSettingHead = 2;     // 用户设置头
-    required int64 userFriendHead = 3;      // 用户好友消息头
-    required int64 friendRequestHead = 4;   // 好友请求消息头
-}
-
-message Publish {
-
-}
-
-message MessageContext {
-
+    uint64 messageHead = 1;         // 最新消息头
+    uint64 userSettingHead = 2;     // 用户设置头
+    uint64 userFriendHead = 3;      // 用户好友消息头
+    uint64 friendRequestHead = 4;   // 好友请求消息头
 }

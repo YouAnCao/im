@@ -20,15 +20,58 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="540e0ac2-ffde-460d-a6dc-2e27f93cb021" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/codec/IMServerProtocolEncryptEncoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hd/im/proto/HDIMProtocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hd/im/proto/HDIMProtocol.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app-server/src/main/java/com/hd/im/appserver/config/RedisAutoConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app-server/src/main/java/com/hd/im/appserver/controller/RouterController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../app-server/src/main/java/com/hd/im/appserver/properties/RedisProperties.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hd/im/commons/constants/DecoderError.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hd/im/commons/constants/ErrorCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hd/im/commons/proto/Tester.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hd/im/commons/utils/AESHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hd/im/commons/utils/RSAUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/IMServerDecoderFailHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../app-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app-server/src/main/java/com/c2u/AppServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../app-server/src/main/java/com/hd/im/appserver/AppServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app-server/src/main/java/com/c2u/controller/RouterController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../app-server/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../app-server/src/main/resources/application-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hd/im/dto/Result.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hd/im/commons/dto/Result.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hd/im/entity/IMServerInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hd/im/commons/entity/IMServerInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hd/im/entity/UserSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hd/im/commons/entity/UserSession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hd/im/proto/HDIMProtocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hd/im/commons/proto/HDIMProtocol.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hd/im/proto/Tester.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hd/im/redis/RedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hd/im/commons/redis/RedisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hd/im/redis/RedisConfigException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hd/im/commons/redis/RedisConfigException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hd/im/redis/RedisStandalone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hd/im/commons/redis/RedisStandalone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hd/im/utils/AESUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hd/im/commons/utils/AESUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hd/im/utils/RSAUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/ImServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/ImServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/channel/NettyChannelKeys.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/channel/NettyChannelKeys.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/codec/IMServerFrameDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/codec/IMServerFrameDecoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/codec/IMServerFrameEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/codec/IMServerFrameEncoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/codec/IMServerProtocolDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/codec/IMServerProtocolDecoder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/codec/IMServerProtocolDecryptDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/codec/IMServerProtocolDecryptDecoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/codec/IMServerProtocolEncryptEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/codec/IMServerProtocolEncryptEncoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/config/RedisAutoConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/config/RedisAutoConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/IMServerIdleHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/IMServerIdleHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/IMServerLoginHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/IMServerLoginHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proto/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../proto/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proto/src/main/resources/HDIMProtocol.desc" beforeDir="false" afterPath="$PROJECT_DIR$/../proto/src/main/resources/HDIMProtocol.desc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proto/src/main/resources/HDIMProtocol.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../proto/src/main/resources/HDIMProtocol.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -36,8 +79,8 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="$PROJECT_DIR$/../../../env/apache-maven-3.6.3" />
-        <option name="userSettingsFile" value="C:\dev\env\apache-maven-3.6.3\conf\settings.xml" />
+        <option name="mavenHome" value="$PROJECT_DIR$/../../../../env/apache-maven-3.6.3" />
+        <option name="userSettingsFile" value="E:\dev\env\apache-maven-3.6.3\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -52,27 +95,31 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/hd/im/redis" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/com/hd/im/commons" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/hd/im/commons/utils" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="project.structure.side.proportion" value="0.34244373" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.hd.im.commons.proto" />
       <recent name="com.hd.im.proto" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\dev\workspace\im.dev2\im\commons\src\main\java\com\hd\im\commons\utils" />
+      <recent name="E:\dev\workspace\im.dev2\im\commons\src\main\java\com\hd\im\utils" />
       <recent name="C:\dev\workspace\im.dev\commons\src\main\java\com\hd\im\redis" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Tester">
-    <configuration name="AESUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.hd.im.utils.AESUtils" />
+  <component name="RunManager" selected="Application.AESHelper">
+    <configuration name="AESHelper" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.hd.im.commons.utils.AESHelper" />
       <module name="commons" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.hd.im.utils.*" />
+          <option name="PATTERN" value="com.hd.im.commons.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -80,12 +127,51 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Tester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.hd.im.proto.Tester" />
+    <configuration name="AESUtils (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.hd.im.commons.utils.AESUtils" />
       <module name="commons" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.hd.im.proto.*" />
+          <option name="PATTERN" value="com.hd.im.commons.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RSAUtils (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.hd.im.commons.utils.RSAUtils" />
+      <module name="commons" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hd.im.commons.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tester (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.hd.im.commons.proto.Tester" />
+      <module name="commons" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hd.im.commons.proto.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tester (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.hd.im.commons.utils.Tester" />
+      <module name="commons" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.hd.im.commons.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -95,8 +181,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Tester" />
-        <item itemvalue="Application.AESUtils" />
+        <item itemvalue="Application.AESHelper" />
+        <item itemvalue="Application.AESUtils (1)" />
+        <item itemvalue="Application.RSAUtils (1)" />
+        <item itemvalue="Application.Tester (2)" />
+        <item itemvalue="Application.Tester (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -114,6 +203,15 @@
       <workItem from="1589047897753" duration="1640000" />
       <workItem from="1589101596052" duration="1058000" />
       <workItem from="1589106481755" duration="4721000" />
+      <workItem from="1589160091575" duration="300000" />
+      <workItem from="1589160458152" duration="1653000" />
+      <workItem from="1589163938616" duration="1014000" />
+      <workItem from="1589164971554" duration="1110000" />
+      <workItem from="1589166638942" duration="350000" />
+      <workItem from="1589167011934" duration="1007000" />
+      <workItem from="1589168052001" duration="2047000" />
+      <workItem from="1589175871382" duration="210000" />
+      <workItem from="1589178592932" duration="12219000" />
     </task>
     <servers />
   </component>
@@ -137,33 +235,45 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1589115301292" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1589106492933">
+    <state x="765" y="204" key="#com.intellij.ide.util.MemberChooser" timestamp="1589185451289">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589106492933" />
-    <state width="1877" height="219" key="GridCell.Tab.0.bottom" timestamp="1589123113636">
+    <state x="765" y="204" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1589185451289" />
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1589196879429">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="219" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589123113636" />
-    <state width="1877" height="219" key="GridCell.Tab.0.center" timestamp="1589123113636">
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589196879429" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1589160566900">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="219" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589123113636" />
-    <state width="1877" height="219" key="GridCell.Tab.0.left" timestamp="1589123113636">
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589160566900" />
+    <state width="1512" height="359" key="GridCell.Tab.0.bottom" timestamp="1589198009529">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="219" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589123113636" />
-    <state width="1877" height="219" key="GridCell.Tab.0.right" timestamp="1589123113636">
+    <state width="1512" height="359" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589198009529" />
+    <state width="1512" height="359" key="GridCell.Tab.0.center" timestamp="1589198009528">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="219" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589123113636" />
+    <state width="1512" height="359" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589198009528" />
+    <state width="1512" height="359" key="GridCell.Tab.0.left" timestamp="1589198009528">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1512" height="359" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589198009528" />
+    <state width="1512" height="359" key="GridCell.Tab.0.right" timestamp="1589198009529">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1512" height="359" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589198009529" />
     <state x="742" y="240" key="RollbackChangesDialog" timestamp="1589050381019">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="742" y="240" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589050381019" />
-    <state x="394" y="211" width="1340" height="711" key="SettingsEditor" timestamp="1589050061699">
+    <state x="394" y="211" width="1340" height="711" key="SettingsEditor" timestamp="1589183572125">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="394" y="211" width="1340" height="711" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1589050061699" />
+    <state x="394" y="211" width="1340" height="711" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1589183572125" />
+    <state x="759" y="297" key="chooseDestDirectoryDialog" timestamp="1589185311730">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="759" y="297" key="chooseDestDirectoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589185311730" />
   </component>
 </project>

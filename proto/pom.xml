@@ -23,7 +23,7 @@
 		<dependency>
 			<groupId>com.google.protobuf</groupId>
 			<artifactId>protobuf-java</artifactId>
-			<version>2.5.0</version>
+			<version>3.1.0</version>
 		</dependency>
 	</dependencies>
 
@@ -38,11 +38,7 @@
 		</extensions>
 
 		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<version>${spring-boot-maven-plugin.version}</version>
-			</plugin>
+
 			<!-- protobuf 编译组件 -->
 			<plugin>
 				<groupId>org.xolstice.maven.plugins</groupId>
@@ -51,12 +47,11 @@
 				<extensions>true</extensions>
 				<configuration>
 					<protoSourceRoot>${project.basedir}/src/main/resources</protoSourceRoot>
-					<protocArtifact>com.google.protobuf:protoc:2.6.1:exe:${os.detected.classifier}</protocArtifact>
+					<protocArtifact>com.google.protobuf:protoc:3.1.0:exe:${os.detected.classifier}</protocArtifact>
 					<!-- <skip>true</skip> -->
 				</configuration>
 				<executions>
-
-					<execution>
+					<execution> 
 						<goals>
 							<goal>compile</goal>
 						</goals>

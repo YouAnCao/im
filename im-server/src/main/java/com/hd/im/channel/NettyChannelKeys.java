@@ -1,7 +1,7 @@
 package com.hd.im.channel;
 
-import com.hd.im.entity.UserSession;
 
+import com.hd.im.commons.entity.UserSession;
 import io.netty.util.AttributeKey;
 
 public class NettyChannelKeys {

@@ -1,4 +1,4 @@
-package com.hd.im.entity;
+package com.hd.im.commons.entity;
 
 /**
  * @ClassName: UserSession

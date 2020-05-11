@@ -1,4 +1,4 @@
-package com.hd.im.dto;
+package com.hd.im.commons.dto;
 
 public class Result {
     private int    errorCode = 0;

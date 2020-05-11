@@ -1,6 +1,6 @@
 package com.hd.im.codec;
 
-import com.hd.im.proto.HDIMProtocol;
+import com.hd.im.commons.proto.HDIMProtocol;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToMessageEncoder;

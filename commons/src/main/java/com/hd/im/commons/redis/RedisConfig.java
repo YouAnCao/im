@@ -1,4 +1,4 @@
-package com.hd.im.redis;
+package com.hd.im.commons.redis;
 
 /**
  * @ClassName: RedisConfig

@@ -14,13 +14,12 @@ import java.util.List;
  */
 public class IMServerProtocolDecoder extends MessageToMessageDecoder<ByteBuf> {
     @Override
-    protected void decode(ChannelHandlerContext ctx, ByteBuf byteBuf, List<Object> list)
-            throws Exception {
+    protected void decode(ChannelHandlerContext ctx, ByteBuf byteBuf, List<Object> list) throws Exception {
         if (byteBuf != null && byteBuf.readableBytes() > 0) {
             /* 获取操作类型 */
             int op = byteBuf.readByte();
             /* 转换对应的操作数据类型 */
-            int len = byteBuf.readableBytes();
+            int    len = byteBuf.readableBytes();
             byte[] dst = new byte[len];
             byteBuf.readBytes(dst);
             String string = new String(dst);

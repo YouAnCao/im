@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 public class IMServerIdleHandler extends IdleStateHandler {
 
     public IMServerIdleHandler() {
-        super(15, 0, 0, TimeUnit.SECONDS);
+        super(30, 0, 0, TimeUnit.SECONDS);
     }
 
     @Override

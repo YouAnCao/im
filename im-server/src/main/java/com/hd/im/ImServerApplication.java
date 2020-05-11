@@ -1,5 +1,7 @@
 package com.hd.im;
 
+import com.hd.im.codec.IMServerFrameEncoder;
+import com.hd.im.handler.IMServerDecoderFailHandler;
 import com.hd.im.handler.IMServerIdleHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -51,12 +53,14 @@ public class ImServerApplication {
                 protected void initChannel(NioSocketChannel nioSocketChannel) throws Exception {
                     ChannelPipeline pipeline = nioSocketChannel.pipeline();
 
-                    pipeline.addLast("idleCheck", new IMServerIdleHandler());
+                    //pipeline.addLast("idleCheck", new IMServerIdleHandler());
 
-                    pipeline.addLast(new IMServerFrameDecoder());
+                    pipeline.addLast("IMServerFrameDecoder", new IMServerFrameDecoder());
+                    pipeline.addLast("IMServerFrameEncoder", new IMServerFrameEncoder());
                     pipeline.addLast(new IMServerProtocolDecryptDecoder());
                     pipeline.addLast(new IMServerProtocolDecoder());
 
+                    pipeline.addLast("decoderErrorHandler", new IMServerDecoderFailHandler());
                     pipeline.addLast(new IMServerLoginHandler());
                     pipeline.addLast(new IMServerPublishHandler());
                 }

@@ -1,4 +1,4 @@
-package com.hd.im.redis;
+package com.hd.im.commons.redis;
 
 import java.util.List;
 import java.util.Map;

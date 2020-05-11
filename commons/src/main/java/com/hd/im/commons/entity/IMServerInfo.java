@@ -1,9 +1,10 @@
-package com.hd.im.entity;
+package com.hd.im.commons.entity;
 
 public class IMServerInfo {
 
     private String ip;
     private int    port;
+    private String encryptKey;
     public  long   timestamp;
 
     public IMServerInfo() {
@@ -13,6 +14,21 @@ public class IMServerInfo {
         this.ip = ip;
         this.port = port;
         this.timestamp = timestamp;
+    }
+
+    public IMServerInfo(String ip, int port, String encryptKey, long timestamp) {
+        this.ip = ip;
+        this.port = port;
+        this.encryptKey = encryptKey;
+        this.timestamp = timestamp;
+    }
+
+    public String getEncryptKey() {
+        return encryptKey;
+    }
+
+    public void setEncryptKey(String encryptKey) {
+        this.encryptKey = encryptKey;
     }
 
     public String getIp() {
