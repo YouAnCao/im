@@ -20,20 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="540e0ac2-ffde-460d-a6dc-2e27f93cb021" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/MessageService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/UserFriendService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/impl/MessageServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/impl/UserFriendServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hd/im/commons/constants/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hd/im/commons/constants/ErrorCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/ImServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/ImServerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/cache/MemorySessionStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/cache/MemorySessionStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/codec/IMServerFrameEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/codec/IMServerFrameEncoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/codec/IMServerProtocolDecryptDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/codec/IMServerProtocolDecryptDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/IMServerLoginHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/IMServerLoginHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../proto/src/main/resources/HDIMProtocol.desc" beforeDir="false" afterPath="$PROJECT_DIR$/../proto/src/main/resources/HDIMProtocol.desc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../proto/src/main/resources/HDIMProtocol.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../proto/src/main/resources/HDIMProtocol.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

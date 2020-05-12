@@ -20,20 +20,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0589019d-d006-4287-b8a3-86b1777b3222" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/MessageService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/UserFriendService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/impl/MessageServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/impl/UserFriendServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../commons/src/main/java/com/hd/im/commons/constants/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../commons/src/main/java/com/hd/im/commons/constants/ErrorCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/ImServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/ImServerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/cache/MemorySessionStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/cache/MemorySessionStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/codec/IMServerFrameEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/codec/IMServerFrameEncoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/codec/IMServerProtocolDecryptDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/codec/IMServerProtocolDecryptDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/IMServerLoginHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/IMServerLoginHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/HDIMProtocol.desc" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/HDIMProtocol.desc" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/HDIMProtocol.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/HDIMProtocol.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,7 +34,7 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="mavenHome" value="$PROJECT_DIR$/../../../env/apache-maven-3.6.3" />
-        <option name="userSettingsFile" value="C:\dev\env\apache-maven-3.6.3\conf\settings.xml" />
+        <option name="userSettingsFile" value="C:\dev\env\apache-maven-3.6.3\conf\settings-aliyun.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -108,10 +94,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="667" y="320" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1589117492402" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1589248709200">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1589297973165">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589248709200" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589297973165" />
+    <state width="1877" height="304" key="GridCell.Tab.0.bottom" timestamp="1589298569311">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="304" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589298569311" />
+    <state width="1877" height="304" key="GridCell.Tab.0.center" timestamp="1589298569311">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="304" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589298569311" />
+    <state width="1877" height="304" key="GridCell.Tab.0.left" timestamp="1589298569311">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="304" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589298569311" />
+    <state width="1877" height="304" key="GridCell.Tab.0.right" timestamp="1589298569311">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="304" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589298569311" />
+    <state x="461" y="164" key="SettingsEditor" timestamp="1589297974574">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1589297974574" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1589180331409">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
