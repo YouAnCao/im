@@ -70,5 +70,11 @@ public class Client {
         //byteBuf.writeBytes(new byte[]{1, 2, 3});
         byteBuf.writeBytes(data);
         channelFuture.channel().writeAndFlush(byteBuf);
+//        byteBuf.release();
+//        /* 登出 */
+//        ByteBuf byteBuf2 = Unpooled.buffer(2);
+//        byteBuf2.writeByte(1);
+//        byteBuf2.writeByte(2);
+//        channelFuture.channel().writeAndFlush(byteBuf);
     }
 }

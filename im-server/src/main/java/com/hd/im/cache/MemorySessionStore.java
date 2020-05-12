@@ -1,5 +1,6 @@
 package com.hd.im.cache;
 
+import cn.hutool.core.util.StrUtil;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 
@@ -41,6 +42,15 @@ public class MemorySessionStore {
     public void saveClient(String clientId, ChannelHandlerContext channelHandlerContext) {
         if (channelHandlerContext != null && channelHandlerContext.channel().isActive()) {
             CONNECTIONS.put(clientId, channelHandlerContext);
+        }
+    }
+
+    public void tickClient(String clientId) {
+        if (StrUtil.isNotEmpty(clientId)) {
+            ChannelHandlerContext channelHandlerContext = CONNECTIONS.remove(clientId);
+            if (channelHandlerContext != null) {
+                channelHandlerContext.close();
+            }
         }
     }
 }

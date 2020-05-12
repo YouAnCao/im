@@ -16,9 +16,4 @@ public class IMServerFrameEncoder extends LengthFieldPrepender {
     public IMServerFrameEncoder() {
         super(2);
     }
-
-    @Override
-    protected void encode(ChannelHandlerContext ctx, ByteBuf msg, List<Object> out) throws Exception {
-        super.encode(ctx, msg, out);
-    }
 }

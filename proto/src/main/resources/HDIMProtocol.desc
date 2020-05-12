@@ -44,3 +44,37 @@ message LoginResponse {
     uint64 userFriendHead = 3;      // 用户好友消息头
     uint64 friendRequestHead = 4;   // 好友请求消息头
 }
+
+
+message Publish {
+    uint32 publishType = 1;         // 推送类型
+    bytes payload = 2;              // 有效负载
+}
+
+message PublishResponse {
+    uint32 publishType = 1;         // 推送类型
+    bytes payload = 2;              // 有效负载
+}
+
+message Message {
+    MessageContent messageContent = 2;  // 消息内容
+    Conversation conversation = 3;      // 会话
+    string from = 4;                    // 来源
+    string to = 5;                      // 目标
+}
+
+message Conversation {
+    uint32 type = 1;                        // 会话类型
+    string target = 2;                      // 目标
+}
+
+message MessageContent {
+    uint32 contentType = 1;                 // 消息类型
+    string searchableContent = 2;           // 搜索内容
+    string pushContent = 3;                 // 推送内容
+    bytes data = 4;                         // 消息内容
+    uint32 mentionedType = 5;               // 提醒类型
+    repeated string mentionedTargets = 6;   // 提醒对象
+    uint32 mediaType = 7;                   // 媒体类型
+    uint32 remoteMediaUrl = 8;              // 远程媒体文件地址
+}

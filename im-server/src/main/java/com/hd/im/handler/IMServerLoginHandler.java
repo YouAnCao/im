@@ -1,6 +1,5 @@
 package com.hd.im.handler;
 
-import cn.hutool.core.lang.UUID;
 import cn.hutool.core.util.StrUtil;
 import com.hd.im.cache.MemorySessionStore;
 import com.hd.im.channel.NettyChannelKeys;
@@ -9,7 +8,6 @@ import com.hd.im.commons.entity.UserSession;
 import com.hd.im.commons.proto.HDIMProtocol;
 import com.hd.im.commons.redis.RedisStandalone;
 import com.hd.im.commons.utils.AESHelper;
-import com.hd.im.commons.utils.AESUtils;
 import com.hd.im.commons.utils.RSAUtils;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
@@ -26,7 +24,7 @@ public class IMServerLoginHandler extends SimpleChannelInboundHandler<HDIMProtoc
     protected void channelRead0(ChannelHandlerContext ctx, HDIMProtocol.Login msg) throws Exception {
         // TODO 完成登录验证
         // 1. 根据用户token,获取在路由接口中产生的RSA私钥
-        // 2. 根据RSA私钥，解密用户提交的 AES 加密数据
+        // 2. 根据RSA私钥，解密用户提交的AES加密数据
         // 3. 将解密出来的AES密钥解密提交的加密数据
         // 4. 比对加密数据与用户token对应的基础数据，判断是否登录成功
         // 5. 如果登录成功，判断当前缓存是否存在[设备号]对应的连接信息
@@ -36,9 +34,22 @@ public class IMServerLoginHandler extends SimpleChannelInboundHandler<HDIMProtoc
         // 9. 响应给客户端用户基础信息 用户消息头/用户好友消息头/用户设置消息头/好友请求消息头
 
         /* 响应数据 */
-        ByteBuf result    = ctx.alloc().buffer();
-        int     errorCode = ErrorCode.SUCCESS;
-        String  token     = msg.getToken();
+        ByteBuf result = ctx.alloc().buffer();
+        result.writeByte(HDIMProtocol.HeadType.LOGIN_RESPONSE.getNumber());
+
+        /* 错误码 */
+        int errorCode = ErrorCode.SUCCESS;
+
+        /* channel 上绑定的用户session信息 */
+        Attribute<UserSession> session     = ctx.channel().attr(NettyChannelKeys.USER_SESSION);
+        UserSession            sessionInfo = null;
+        /* 已经登录过,拒绝本次连接 */
+        if (session != null && (sessionInfo = session.get()) != null) {
+            errorCode = ErrorCode.USER_REPEAT_LOGIN;
+            return;
+        }
+
+        String token = msg.getToken();
         try {
             if (StrUtil.isEmpty(token)) {
                 errorCode = ErrorCode.REQ_TOKEN_NOT_FOUND;
@@ -72,11 +83,19 @@ public class IMServerLoginHandler extends SimpleChannelInboundHandler<HDIMProtoc
                 errorCode = ErrorCode.DECRYPT_DATA_FAIL;
                 return;
             }
-            Attribute<UserSession> session = ctx.channel().attr(NettyChannelKeys.USER_SESSION);
-            session.setIfAbsent(new UserSession());
-            byte[] data = HDIMProtocol.LoginResponse.newBuilder().setMessageHead(0L).setUserFriendHead(0L).setUserSettingHead(0L).setFriendRequestHead(0L).build().toByteArray();
+
+            UserSession userSession = new UserSession();
+            userSession.setClientId(clientInfo.getClientId());
+            userSession.setUserId(clientInfo.getUserId());
+            userSession.setAesKey(aesKey);
+            session.setIfAbsent(userSession);
+            MemorySessionStore.getInstance().saveClient(clientInfo.getClientId(), ctx);
+
+            HDIMProtocol.LoginResponse loginResponse = HDIMProtocol.LoginResponse.newBuilder().setMessageHead(-1L).setUserFriendHead(-1L).setUserSettingHead(-1L).setFriendRequestHead(-1L).build();
+            byte[]                     data          = loginResponse.toByteArray();
+            byte[]                     encrypt       = AESHelper.encrypt(data, aesKey);
             result.writeByte(ErrorCode.SUCCESS);
-            result.writeBytes(data);
+            result.writeBytes(encrypt);
         } finally {
             if (errorCode != ErrorCode.SUCCESS) {
                 result.writeByte(errorCode);

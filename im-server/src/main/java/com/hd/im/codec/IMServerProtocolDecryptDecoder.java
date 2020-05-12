@@ -1,6 +1,8 @@
 package com.hd.im.codec;
 
+import cn.hutool.core.codec.Base64;
 import com.google.protobuf.InvalidProtocolBufferException;
+import com.hd.im.cache.MemorySessionStore;
 import com.hd.im.channel.NettyChannelKeys;
 import com.hd.im.commons.constants.DecoderError;
 import com.hd.im.commons.entity.UserSession;
@@ -48,9 +50,9 @@ public class IMServerProtocolDecryptDecoder extends MessageToMessageDecoder<Byte
             } else if (HDIMProtocol.HeadType.PUBLISH.getNumber() == op) {
                 /* 如果是推送的包，所有数据都需要进行解密 */
                 Attribute<UserSession> session = ctx.channel().attr(NettyChannelKeys.USER_SESSION);
-                if (session == null) {
+                UserSession userSession = null;
+                if (session == null || (userSession = session.get()) == null) {
                     /* 没有登录 */
-                    ctx.writeAndFlush(new byte[]{(byte) op, 5});
                     return;
                 }
                 /* 需要进行完全解密 */
@@ -59,8 +61,11 @@ public class IMServerProtocolDecryptDecoder extends MessageToMessageDecoder<Byte
                 transfer.writeByte(op);
                 transfer.writeBytes(decrypt);
                 list.add(transfer);
-            } else {
-
+            } else if (HDIMProtocol.HeadType.LOGIN_OUT.getNumber() == op){
+                UserSession userSession = ctx.channel().attr(NettyChannelKeys.USER_SESSION).get();
+                String clientId = userSession.getClientId();
+                MemorySessionStore.getInstance().tickClient(clientId);
+                ctx.close();
             }
         }
     }

@@ -44,7 +44,7 @@ public class ErrorCode {
     public static final int DECRYPT_DATA_FAIL = 6;
 
     /**
-     * 用户未登录
+     * 重复登录异常
      */
-    public static final int USER_NOT_LOGIN = 7;
+    public static final int USER_REPEAT_LOGIN = 7;
 }
