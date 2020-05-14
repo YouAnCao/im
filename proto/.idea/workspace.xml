@@ -20,6 +20,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0589019d-d006-4287-b8a3-86b1777b3222" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../commons/src/main/java/com/hd/im/commons/constants/ErrorResult.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../commons/src/main/java/com/hd/im/commons/constants/RedisConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../commons/src/main/java/com/hd/im/commons/entity/UserInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../commons/src/main/java/com/hd/im/commons/utils/JWTUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/IMServerProtocolErrorHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/propertis/JWTProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../commons/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../commons/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../commons/src/main/java/com/hd/im/commons/constants/DecoderError.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../commons/src/main/java/com/hd/im/commons/constants/ErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/../commons/src/main/java/com/hd/im/commons/constants/ErrorCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../commons/src/main/java/com/hd/im/commons/proto/HDIMProtocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/../commons/src/main/java/com/hd/im/commons/proto/HDIMProtocol.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/ImServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/ImServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/cache/MemorySessionStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/cache/MemorySessionStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/codec/IMServerProtocolDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/codec/IMServerProtocolDecoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/codec/IMServerProtocolDecryptDecoder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/codec/IMServerProtocolEncryptEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/codec/IMServerProtocolEncryptEncoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/IMServerDecoderFailHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/IMServerLoginHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/IMServerLoginHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/IMServerPublishHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/IMServerPublishHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/resources/application-dev.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/HDIMProtocol.proto" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/HDIMProtocol.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,7 +69,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../yhjc/hd-user" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../yhjc/hd/hd-product" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="SvnConfiguration">
@@ -70,7 +90,7 @@
       <workItem from="1589205201854" duration="1145000" />
       <workItem from="1589206658369" duration="458000" />
       <workItem from="1589247435388" duration="9118000" />
-      <workItem from="1589283573380" duration="3680000" />
+      <workItem from="1589283573380" duration="13855000" />
     </task>
     <servers />
   </component>
@@ -94,10 +114,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="667" y="320" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1589117492402" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1589297973165">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1589370111679">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589297973165" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589370111679" />
     <state width="1877" height="304" key="GridCell.Tab.0.bottom" timestamp="1589298569311">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

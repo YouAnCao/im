@@ -12,3 +12,8 @@ redis:
   maxWait: 2000
   maxWaitMillis: 3000
   timeout: 3000
+  
+jwt:
+  audience: user
+  issuer: yhjc
+  secretKey: K27w2pGpcD1s1qfS1A7uV7Zuc2XXS1

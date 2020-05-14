@@ -18,7 +18,7 @@ public class IMServerProtocolEncryptEncoder extends MessageToMessageEncoder<Byte
     protected void encode(ChannelHandlerContext ctx, ByteBuf msg, List<Object> out) throws Exception {
         /* 只有推送响应需要加密 */
         int op = msg.readByte();
-        if (HDIMProtocol.HeadType.PUBLISH.getNumber() == op) {
+        if (HDIMProtocol.HeadType.PUBLISH_RESPONSE_VALUE == op) {
             
         }
         out.add(msg);

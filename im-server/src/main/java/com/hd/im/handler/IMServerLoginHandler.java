@@ -4,11 +4,15 @@ import cn.hutool.core.util.StrUtil;
 import com.hd.im.cache.MemorySessionStore;
 import com.hd.im.channel.NettyChannelKeys;
 import com.hd.im.commons.constants.ErrorCode;
+import com.hd.im.commons.constants.RedisConstants;
 import com.hd.im.commons.entity.UserSession;
 import com.hd.im.commons.proto.HDIMProtocol;
 import com.hd.im.commons.redis.RedisStandalone;
 import com.hd.im.commons.utils.AESHelper;
+import com.hd.im.commons.utils.JWTUtils;
 import com.hd.im.commons.utils.RSAUtils;
+import com.hd.im.context.ApplicationContextHolder;
+import com.hd.im.propertis.JWTProperties;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -16,14 +20,14 @@ import io.netty.util.Attribute;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Map;
+
 public class IMServerLoginHandler extends SimpleChannelInboundHandler<HDIMProtocol.Login> {
 
     Logger logger = LoggerFactory.getLogger(IMServerLoginHandler.class);
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, HDIMProtocol.Login msg) throws Exception {
-        // TODO 完成登录验证
-        // 1. 根据用户token,获取在路由接口中产生的RSA私钥
         // 2. 根据RSA私钥，解密用户提交的AES加密数据
         // 3. 将解密出来的AES密钥解密提交的加密数据
         // 4. 比对加密数据与用户token对应的基础数据，判断是否登录成功
@@ -45,10 +49,12 @@ public class IMServerLoginHandler extends SimpleChannelInboundHandler<HDIMProtoc
         UserSession            sessionInfo = null;
         /* 已经登录过,拒绝本次连接 */
         if (session != null && (sessionInfo = session.get()) != null) {
+            logger.error("user repeat login.", session);
             errorCode = ErrorCode.USER_REPEAT_LOGIN;
             return;
         }
 
+        /* 1. 根据用户token,获取在路由接口中产生的RSA私钥 */
         String token = msg.getToken();
         try {
             if (StrUtil.isEmpty(token)) {
@@ -56,22 +62,34 @@ public class IMServerLoginHandler extends SimpleChannelInboundHandler<HDIMProtoc
                 return;
             }
 
-            String privateKey = RedisStandalone.REDIS.hget(token, "rsa_private");
+            JWTProperties       jwtProperties = ApplicationContextHolder.getApplicationContext().getBean(JWTProperties.class);
+            Map<String, String> userInfo      = null;
+            try {
+                userInfo = JWTUtils.jwtParser(jwtProperties.getSecretKey(), token, jwtProperties.getAudience(), jwtProperties.getIssuer());
+                if (userInfo == null || userInfo.size() == 0) {
+                    errorCode = ErrorCode.REQ_BAD_TOKEN;
+                    return;
+                }
+            } catch (Exception e) {
+                errorCode = ErrorCode.REQ_BAD_TOKEN;
+                return;
+            }
+            String userInfoKey = String.format(RedisConstants.USER_INFO, userInfo.get(JWTUtils.USER_ID));
+            String privateKey  = RedisStandalone.REDIS.hget(userInfoKey, RSAUtils.PRIVATE_KEY);
             if (StrUtil.isEmpty(privateKey)) {
-                errorCode = ErrorCode.USER_RSA_PRI_KEY_NOT_FOUND;
+                errorCode = ErrorCode.USER_PRI_KEY_NOT_EXIST;
                 return;
             }
             String aesKey = null;
             try {
                 aesKey = RSAUtils.decryptByPriKey(msg.getEncryptKey().toString("utf-8"), privateKey);
             } catch (Exception e) {
-                errorCode = ErrorCode.DECRYPT_AES_KEY_FAIL;
+                errorCode = ErrorCode.DECRYPT_KEY_FAIL;
                 return;
             }
             String decrypt = null;
             try {
                 decrypt = AESHelper.decrypt(msg.getEncryptData().toByteArray(), aesKey);
-                //decrypt = AESUtils.decrypt(msg.getEncryptData().toByteArray(), aesKey);
             } catch (Exception e) {
                 errorCode = ErrorCode.DECRYPT_DATA_FAIL;
                 return;
@@ -80,7 +98,7 @@ public class IMServerLoginHandler extends SimpleChannelInboundHandler<HDIMProtoc
             try {
                 clientInfo = HDIMProtocol.ClientInfo.parseFrom(decrypt.getBytes("utf-8"));
             } catch (Exception e) {
-                errorCode = ErrorCode.DECRYPT_DATA_FAIL;
+                errorCode = ErrorCode.PARSER_CLIENT_INFO_FAIL;
                 return;
             }
 

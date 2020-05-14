@@ -3,8 +3,7 @@ package com.hd.im;
 import com.hd.im.codec.IMServerFrameDecoder;
 import com.hd.im.codec.IMServerFrameEncoder;
 import com.hd.im.codec.IMServerProtocolDecoder;
-import com.hd.im.codec.IMServerProtocolDecryptDecoder;
-import com.hd.im.handler.IMServerDecoderFailHandler;
+import com.hd.im.handler.IMServerProtocolErrorHandler;
 import com.hd.im.handler.IMServerLoginHandler;
 import com.hd.im.handler.IMServerPublishHandler;
 import io.netty.bootstrap.ServerBootstrap;
@@ -50,10 +49,9 @@ public class ImServerApplication {
 
                     pipeline.addLast("IMServerFrameDecoder", new IMServerFrameDecoder());
                     pipeline.addLast("IMServerFrameEncoder", new IMServerFrameEncoder());
-                    pipeline.addLast(new IMServerProtocolDecryptDecoder());
                     pipeline.addLast(new IMServerProtocolDecoder());
 
-                    pipeline.addLast("decoderErrorHandler", new IMServerDecoderFailHandler());
+                    pipeline.addLast("decoderErrorHandler", new IMServerProtocolErrorHandler());
                     pipeline.addLast(new IMServerLoginHandler());
                     pipeline.addLast(new IMServerPublishHandler());
                 }
