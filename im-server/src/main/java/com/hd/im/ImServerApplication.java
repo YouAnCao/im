@@ -1,11 +1,11 @@
 package com.hd.im;
 
-import com.hd.im.codec.IMServerFrameDecoder;
-import com.hd.im.codec.IMServerFrameEncoder;
-import com.hd.im.codec.IMServerProtocolDecoder;
-import com.hd.im.handler.IMServerProtocolErrorHandler;
-import com.hd.im.handler.IMServerLoginHandler;
-import com.hd.im.handler.IMServerPublishHandler;
+import com.hd.im.netty.codec.IMServerFrameDecoder;
+import com.hd.im.netty.codec.IMServerFrameEncoder;
+import com.hd.im.netty.codec.IMServerProtocolDecoder;
+import com.hd.im.netty.handler.IMServerProtocolErrorHandler;
+import com.hd.im.netty.handler.IMServerLoginHandler;
+import com.hd.im.netty.handler.IMServerPublishHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -15,8 +15,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
+@EnableDiscoveryClient
+//@EnableFeignClients(basePackages = {"com.hd.im.api.service.*", "com.hd.user.api.service.*"})
 public class ImServerApplication {
 
     private static Logger logger = LoggerFactory.getLogger(ImServerApplication.class);

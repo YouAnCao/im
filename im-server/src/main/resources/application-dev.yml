@@ -1,5 +1,16 @@
 spring:
   profiles: dev
+  application:
+    name: im-gateway
+  main:
+    allow-bean-definition-overriding: true
+eureka:
+  client:
+    serviceUrl: #注册中心的注册地址
+      defaultZone: http://192.168.0.88:7000/eureka/
+feign:
+  hystrix:
+    enabled: true
 
 #redis配置
 redis:
@@ -12,7 +23,7 @@ redis:
   maxWait: 2000
   maxWaitMillis: 3000
   timeout: 3000
-  
+
 jwt:
   audience: user
   issuer: yhjc

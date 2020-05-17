@@ -1,6 +1,8 @@
 package com.hd.im.cache;
 
 import cn.hutool.core.util.StrUtil;
+import com.hd.im.netty.channel.NettyChannelKeys;
+import com.im.core.entity.UserSession;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 
@@ -30,13 +32,21 @@ public class MemorySessionStore {
 
     private final static ConcurrentHashMap<String, ChannelHandlerContext> CONNECTIONS = new ConcurrentHashMap<>();
 
-    public void sendMessage(String clientId, byte[] data) {
+    public boolean sendMessage(String clientId, String userId, ByteBuf payload) {
         ChannelHandlerContext channelHandlerContext = CONNECTIONS.get(clientId);
-        if (channelHandlerContext != null && channelHandlerContext.channel().isOpen()) {
-            ByteBuf byteBuf = channelHandlerContext.alloc().buffer(data.length);
-            channelHandlerContext.writeAndFlush(byteBuf);
-            byteBuf.release();
+        if (channelHandlerContext != null && channelHandlerContext.channel().isActive()) {
+            UserSession userSession = channelHandlerContext.channel().attr(NettyChannelKeys.USER_SESSION).get();
+            if (userSession == null) {
+                CONNECTIONS.remove(clientId);
+                return false;
+            }
+            if (userId.equals(userSession.getUserId())) {
+                channelHandlerContext.writeAndFlush(payload);
+                payload.release();
+            }
+            return true;
         }
+        return false;
     }
 
     public void saveClient(String clientId, ChannelHandlerContext channelHandlerContext) {

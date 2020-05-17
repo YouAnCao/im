@@ -1,8 +1,8 @@
 package com.hd.im.config;
 
-import com.hd.im.commons.redis.RedisConfig;
-import com.hd.im.commons.redis.RedisStandalone;
 import com.hd.im.propertis.RedisProperties;
+import com.im.core.redis.RedisConfig;
+import com.im.core.redis.RedisStandalone;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

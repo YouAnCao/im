@@ -1,9 +1,9 @@
 package com.hd.im.service;
 
 import com.google.protobuf.ByteString;
-import com.hd.im.commons.proto.HDIMProtocol;
-import com.hd.im.commons.utils.AESHelper;
-import com.hd.im.commons.utils.RSAUtils;
+import com.im.core.utils.RSAUtils;
+import com.im.core.proto.HDIMProtocol;
+import com.im.core.utils.AESHelper;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -40,7 +40,7 @@ public class Client {
                 });
             }
         });
-        String                  pk            = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCylWRQDAWpw6hJNpqy5RNNwrHjYbsNOSAzcMm1eOhxqB2cJq/Tkr2FYQlVhMdh/ZBdUhIYB5jCUlzMN706ra0ZBczz4Zv03rZL8+z64fAI347NvYheKj7ID7FKoYHzxAqquXdh1uuN7PO1zN53KHBY8jqESEwUQ/DMFzV60X+zZQIDAQAB";
+        String                  pk            = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCinOy61f/nf0loKTp9edbHvR5D2QpgEdZtNYd3TtzSuyq3SDEOOU46OjETh8wtY6RBDw9s+K2eXiwUhlH0lACCHdHfTf0CbCxKYHqewxayUj4V2sdAdIwcPJiVExgBh1OixbFno+7c4oqThbpKu2LBBAd9kmOHil6PS9CVIrqIQQIDAQAB";
         String                  token         = "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ5aGpjIiwiZXhwIjoxNjIwNzAzMzYzLCJhdWQiOiJ1c2VyIiwianRpIjoiMTIzNzU4MDkwNjc5OTkyMzIwMiIsInVzZXJuYW1lIjoiaGRfYTdmNTM3ZWZmYTFiYTY2MGI5NTc3ZTI3ZDIzZjJhY2MiLCJyZWFsTmFtZSI6IjEyMyIsInBsYXRmb3JtIjoiQU5EUk9JRCIsImlwIjoiMTkyLjE2OC4wLjE0MSJ9.1V1mjKM6FEPTmZJjzHIE_G0CT3xJXJR755_8AERGUpY";
         ChannelFuture           channelFuture = bootstrap.connect(new InetSocketAddress("127.0.0.1", 2020)).sync();
         HDIMProtocol.ClientInfo android       = HDIMProtocol.ClientInfo.newBuilder().setClientId("0123456789").setUserId("1237580906799923202").setPlatForm(HDIMProtocol.PlatForm.ANDROID.getNumber()).setAppVersion("1.0.0").build();
@@ -54,7 +54,7 @@ public class Client {
             e.printStackTrace();
         }
         System.out.println(" 加密AES密钥： " + encryptKey);
-        String decryptByPriKey = RSAUtils.decryptByPriKey(encryptKey, "MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBALKVZFAMBanDqEk2mrLlE03CseNhuw05IDNwybV46HGoHZwmr9OSvYVhCVWEx2H9kF1SEhgHmMJSXMw3vTqtrRkFzPPhm/Tetkvz7Prh8Ajfjs29iF4qPsgPsUqhgfPECqq5d2HW643s87XM3ncocFjyOoRITBRD8MwXNXrRf7NlAgMBAAECgYEAn4iZrnCu9nNVeOIQ3NOLpSHSrGB4K13nCE0vxLAYZsBag06EMCucpvSC1CTjwQQ13Ugd5d2Td7UANWdt4meYg42JaWNnYgpRUtuFvmQLab0l91g5HexjJOL2ea2XFO3SlNp9ZRYmE3pbxH7lyiHKK6E/+RuN9STwdTLq22/rmEECQQDg84lQckPOgRvbKahWf4eyCckR5myheMne9CsnLZscEKYWrOaQVZpsOY/jdZNCBCh8RYlTDNfL3oOyIg5apaBZAkEAyzt9hfB3EOkAthHxVVMc28Ur22xlR6tFRXoAEsYGD90csH5h1DpGuIiwng8vg3FDm09IRKY54GL5hiiwy9wp7QJAUpWWB86rThjgHSnB/196dcZZ5xRtNSqfEhcZ8JwxobALCbAYRUzoEGthg+QaV9Ym9tigfbjtUI80UiVml6jOoQJBAMRzTxTHqvCHqo5Urcniu0SdRZWnJAexQRa1pZiAHp/7Bp58rCgv5OjACKng1/bg548bhioF3HBQfA75Cl0lBskCQDEKrbMxixNQyrOidRWaiirefkoBslMsQ712zRbDH05icwV5pDpRJcBtoe5axOFdY54QKUzP2KxUxZHl7W7bAhU=");
+        String decryptByPriKey = RSAUtils.decryptByPriKey(encryptKey, "MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAKKc7LrV/+d/SWgpOn151se9HkPZCmAR1m01h3dO3NK7KrdIMQ45Tjo6MROHzC1jpEEPD2z4rZ5eLBSGUfSUAIId0d9N/QJsLEpgep7DFrJSPhXax0B0jBw8mJUTGAGHU6LFsWej7tziipOFukq7YsEEB32SY4eKXo9L0JUiuohBAgMBAAECgYApopxKSji3gTO+Y7ACKIwBoD57iLrLVkXcuHPy7FJF8n5BZ06IIcwRxIyEP6TbikOoFL8SW6m4fswyhSG+yZZHUIC5ysDhnycpSCF3Cd7OElZNNA20TrydMV72Um6uVKXAiLAH+aNdqpGnxQ6ZelupIdKwEHk3MeUuUx4fk6NCQQJBAPExNcMtkyfsc0OfHK0RjmFMN6+oYE4mRO5r4eM7jAj4OWe9DHkBGD+uThq97eYP0ekLydOLk5lyuL4ZCoQQrc0CQQCsmLGqn+PyKKTmYZfCkhvt8umLUA5mdcUHUnqoEK9LZmDJSfbRK8e4C+ViWFmF+Vtm9k2aNYJjF+USrwSU+nBFAkBUSALmaiWS/OAmUBJgM9NSEqUe37KPfHX37oDnu6YqeDrvEjOqkQRdNFacp6PbEcojKnhjUNHJ/DmsS+nNzlo9AkBAuQHm+g6AwL0Vp4NBc4kFshHiLCM6SO+Zz1QvshIKNFoXIaVsyv4aBlv+hSMNGnUsJzDyox5CCrPcTcVqGIABAkEAmyj1un8hXRnZtPpytuFMSxXInzvztcjJbsleOMqUown/a+eqaTNwb3ZgiPJJtCRNUPMax77+iK+rNPkS4wFTiQ==");
         System.out.println(" 解密后AES密钥:" + decryptByPriKey);
         HDIMProtocol.Login login = HDIMProtocol.Login.newBuilder().setToken(token).
                 setEncryptData(ByteString.copyFrom(encrypt)).
@@ -73,9 +73,21 @@ public class Client {
         HDIMProtocol.Conversation   conversation   = HDIMProtocol.Conversation.newBuilder().setTarget("hello world").setType(HDIMProtocol.ConversationType.SIGNAL_VALUE).build();
         HDIMProtocol.MessageContent messageContent = HDIMProtocol.MessageContent.newBuilder().setContentType(HDIMProtocol.MessageContentType.TEXT_VALUE).setData(ByteString.copyFrom("你好", "utf-8")).build();
         HDIMProtocol.Message        message        = HDIMProtocol.Message.newBuilder().setConversation(conversation).setMessageContent(messageContent).setFrom("1237580906799923202").setTo("1237580906799923202").build();
-        HDIMProtocol.Publish        publish        = HDIMProtocol.Publish.newBuilder().setPublishType(HDIMProtocol.PublishType.MS_VALUE).setPayload(ByteString.copyFrom(message.toByteArray())).build();
-        byte[]                      payload       = AESHelper.encrypt(publish.toByteArray(), password);
-        ByteBuf                     transfer       = Unpooled.buffer(payload.length + 3);
+
+        byte[] encryptMsg = AESHelper.encrypt(message.toByteArray(), password);
+
+        HDIMProtocol.Publish publish  = HDIMProtocol.Publish.newBuilder().setSequenceId(1L).setPublishType(HDIMProtocol.PublishType.MS_VALUE).setPayload(ByteString.copyFrom(encryptMsg)).build();
+        byte[]               payload  = publish.toByteArray();
+        ByteBuf              transfer = Unpooled.buffer(payload.length + 3);
+
+
+        /* 解密 */
+        HDIMProtocol.Publish publish1 = HDIMProtocol.Publish.parseFrom(payload);
+        byte[]               encrypt1 = publish1.getPayload().toByteArray();
+        String               decrypt1 = AESHelper.decrypt(encrypt1, password);
+        HDIMProtocol.Message message1 = HDIMProtocol.Message.parseFrom(decrypt1.getBytes("utf-8"));
+        System.out.println(new String(message1.getMessageContent().getData().toByteArray()));
+
         transfer.writeShort(payload.length + 1);
         transfer.writeByte(HDIMProtocol.HeadType.PUBLISH_VALUE);
         transfer.writeBytes(payload);
