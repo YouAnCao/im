@@ -1,5 +1,6 @@
 package com.hd.im.context;
 
+import com.hd.im.consumer.MessageSortingConsumer;
 import com.hd.im.handler.HandlerContext;
 import org.springframework.context.ApplicationContext;
 

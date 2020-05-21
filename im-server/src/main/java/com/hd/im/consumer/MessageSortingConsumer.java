@@ -1,8 +1,8 @@
 package com.hd.im.consumer;
 
-import com.google.protobuf.InvalidProtocolBufferException;
+import com.hd.im.context.ApplicationContextHolder;
+import com.hd.im.service.MessageService;
 import com.im.core.constants.RedisConstants;
-import com.im.core.entity.MessageBundle;
 import com.im.core.entity.PublishMessage;
 import com.im.core.proto.HDIMProtocol;
 import com.im.core.redis.RedisStandalone;
@@ -36,19 +36,28 @@ public class MessageSortingConsumer {
 
     public static void starter() {
         MessageSortingConsumer.init(() -> {
-            List<String> data = RedisStandalone.REDIS.brpop(7000, RedisConstants.MESSAGE_SORTING);
-            if (data != null && data.size() > 0) {
-                String val = data.get(1);
-                PublishMessage publishMessage = GSONParser.getInstance().fromJson(val, PublishMessage.class);
-                HDIMProtocol.Message message = publishMessage.toMessage();
-
+            while (true) {
+                try {
+                    List<String> data = RedisStandalone.REDIS.brpop(10000, RedisConstants.MESSAGE_SORTING);
+                    if (data != null && data.size() > 0) {
+                        String               val            = data.get(1);
+                        PublishMessage       publishMessage = GSONParser.getInstance().fromJson(val, PublishMessage.class);
+                        HDIMProtocol.Message message        = publishMessage.toMessage();
+                        MessageService       messageService = ApplicationContextHolder.getApplicationContext().getBean("messageServiceImpl", MessageService.class);
+                        messageService.sendMessage(publishMessage);
+                    } else {
+                        logger.info("message sorting heartbeat. {}", Thread.currentThread().getId());
+                    }
+                } catch (Exception e) {
+                    logger.error("", e);
+                }
             }
         });
     }
 
     private static void init(Runnable exec) {
         for (int i = 0; i < processors; i++) {
-            executor.submit(exec);
+            executor.execute(exec);
         }
     }
 }

@@ -314,6 +314,21 @@ public enum RedisStandalone {
         return null;
     }
 
+    public Long zadd(byte[] key, double score, byte[] value) {
+        Jedis jedis = null;
+        try {
+            jedis = getJedis();
+            return jedis.zadd(key, score, value);
+        } catch (Exception e) {
+            logger.error("", e);
+        } finally {
+            if (jedis != null) {
+                jedis.close();
+            }
+        }
+        return 0L;
+    }
+
     public Long zadd(String key, double score, String value) {
         Jedis jedis = null;
         try {
@@ -920,6 +935,22 @@ public enum RedisStandalone {
             return jedis.zrangeWithScores(key, start, end);
         } catch (Exception e) {
             logger.error("zrange with score faild.", e);
+        } finally {
+            if (jedis != null) {
+                jedis.close();
+            }
+        }
+        return null;
+    }
+
+    public Set<Tuple> zrangeByScoreWithScores(String key, String min, String max) {
+        Jedis jedis = null;
+        try {
+            jedis = getJedis();
+            Set<Tuple> tuples = jedis.zrangeByScoreWithScores(key, min, max);
+            return tuples;
+        } catch (Exception e) {
+            logger.error("range by score with scores fail.", e);
         } finally {
             if (jedis != null) {
                 jedis.close();

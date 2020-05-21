@@ -4,6 +4,7 @@ import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.StrUtil;
 import com.hd.im.cache.MemorySessionStore;
 import com.hd.im.netty.channel.NettyChannelKeys;
+import com.hd.im.service.MessageService;
 import com.im.core.constants.RedisConstants;
 import com.im.core.utils.RSAUtils;
 import com.hd.im.context.ApplicationContextHolder;
@@ -112,18 +113,22 @@ public class IMServerLoginHandler extends SimpleChannelInboundHandler<HDIMProtoc
             String userClientCache = String.format(RedisConstants.USER_CLIENTS, clientInfo.getUserId());
             RedisStandalone.REDIS.sadd(userClientCache, clientInfo.getClientId());
             String userSessionCache = String.format(RedisConstants.USER_SESSION, clientInfo.getClientId());
-
-            Map map = BeanUtil.beanToMap(userSession, false, true);
+            long   lastActiveTime   = System.currentTimeMillis();
+            Map    map              = BeanUtil.beanToMap(userSession, false, true);
+            map.put("lastActiveTime", String.valueOf(lastActiveTime));
             RedisStandalone.REDIS.hmset(userSessionCache, map);
 
-            userSession.setLastActiveTime(System.currentTimeMillis());
+            userSession.setLastActiveTime(lastActiveTime);
             session.setIfAbsent(userSession);
 
             MemorySessionStore.getInstance().saveClient(clientInfo.getClientId(), ctx);
 
-            HDIMProtocol.LoginResponse loginResponse = HDIMProtocol.LoginResponse.newBuilder().setMessageHead(-1L).setUserFriendHead(-1L).setUserSettingHead(-1L).setFriendRequestHead(-1L).build();
-            byte[]                     data          = loginResponse.toByteArray();
-            byte[]                     encrypt       = AESHelper.encrypt(data, aesKey);
+            MessageService             messageServiceImpl = ApplicationContextHolder.getApplicationContext().getBean("messageServiceImpl", MessageService.class);
+            long                       messageHead        = messageServiceImpl.getMessageHead(userSession.getUserId());
+            HDIMProtocol.LoginResponse loginResponse      = HDIMProtocol.LoginResponse.newBuilder().setMessageHead(messageHead).setUserFriendHead(-1L).setUserSettingHead(-1L).setFriendRequestHead(-1L).build();
+
+            byte[] data    = loginResponse.toByteArray();
+            byte[] encrypt = AESHelper.encrypt(data, aesKey);
             result.writeByte(ErrorCode.SUCCESS);
             result.writeBytes(encrypt);
         } finally {

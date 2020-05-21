@@ -11,6 +11,7 @@ import com.im.core.utils.AESHelper;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
+import io.netty.util.ReferenceCountUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,7 +25,7 @@ public class IMServerPublishHandler extends SimpleChannelInboundHandler<HDIMProt
         int     errorCode  = ErrorCode.SUCCESS;
         ByteBuf payload    = ctx.alloc().buffer();
         payload.writeByte(HDIMProtocol.HeadType.PUBLISH_RESPONSE.getNumber());
-        HDIMProtocol.PublishResponse publishResponse = HDIMProtocol.PublishResponse.newBuilder().setSequenceId(sequenceId).setPublishType(HDIMProtocol.PublishType.MS_VALUE).build();
+        HDIMProtocol.PublishResponse publishResponse = HDIMProtocol.PublishResponse.newBuilder().setSequenceId(sequenceId).setPublishType(publish.getPublishType()).build();
         try {
             int                      publishTypeNumber = publish.getPublishType();
             HDIMProtocol.PublishType publishType       = null;
@@ -42,10 +43,12 @@ public class IMServerPublishHandler extends SimpleChannelInboundHandler<HDIMProt
             /* 找到具体执行类 */
             IMHandler handler  = HandlerContext.getHandler(publishType);
             ByteBuf   transfer = ctx.alloc().buffer();
-            errorCode = handler.execute(publish, transfer);
+            errorCode = handler.execute(userSession, publish, transfer);
             if (transfer.readableBytes() > 0) {
                 byte[] data = new byte[transfer.readableBytes()];
                 transfer.readBytes(data);
+                ReferenceCountUtil.release(transfer);
+                
                 String aesKey  = userSession.getAesKey();
                 byte[] encrypt = AESHelper.encrypt(data, aesKey);
                 publishResponse = publishResponse.toBuilder().setPayload(ByteString.copyFrom(encrypt)).build();

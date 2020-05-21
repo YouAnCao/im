@@ -7,6 +7,7 @@ public class RedisConstants {
     public static final String USER_SESSION       = "im:user:session:%s";
     public static final String MESSAGE_STORE      = "im:message:%s";
     public static final String USER_MESSAGE_INBOX = "im:user:message:inbox:%s";
+    public static final String USER_MESSAGE_HEAD  = "im:user:message:head:%s:%s";
 
     /* 消息拉取 量比较大需要单独处理 */
     public static final String MESSAGE_PULL    = "im:worker:queue:mp";

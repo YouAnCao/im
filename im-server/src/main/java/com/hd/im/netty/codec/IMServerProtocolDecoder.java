@@ -1,14 +1,15 @@
 package com.hd.im.netty.codec;
 
-import cn.hutool.core.codec.Base64;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.hd.im.cache.MemorySessionStore;
-import com.im.core.constants.ErrorResult;
-import com.im.core.entity.UserSession;
-import com.im.core.constants.ErrorCode;
-import com.im.core.proto.HDIMProtocol;
 import com.hd.im.netty.channel.NettyChannelKeys;
+import com.im.core.constants.ErrorCode;
+import com.im.core.constants.ErrorResult;
+import com.im.core.constants.RedisConstants;
+import com.im.core.entity.UserSession;
+import com.im.core.proto.HDIMProtocol;
+import com.im.core.redis.RedisStandalone;
 import com.im.core.utils.AESHelper;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
@@ -39,7 +40,7 @@ public class IMServerProtocolDecoder extends MessageToMessageDecoder<ByteBuf> {
                 byteBuf.readBytes(dst);
             }
             logger.info("request operational :{}, remote info:{}, data length:{}", op, ctx.channel().remoteAddress(), dst.length);
-            if (op == HDIMProtocol.HeadType.LOGIN.getNumber()) {
+            if (HDIMProtocol.HeadType.LOGIN_VALUE == op) {
                 /* 如果是登录的请求包，不需要全部解密 */
                 HDIMProtocol.Login login = null;
                 try {
@@ -51,7 +52,7 @@ public class IMServerProtocolDecoder extends MessageToMessageDecoder<ByteBuf> {
                     return;
                 }
                 list.add(login);
-            } else if (HDIMProtocol.HeadType.PUBLISH.getNumber() == op) {
+            } else if (HDIMProtocol.HeadType.PUBLISH_VALUE == op) {
                 /* 如果是推送的包，所有数据都需要进行解密 */
                 Attribute<UserSession> session     = ctx.channel().attr(NettyChannelKeys.USER_SESSION);
                 UserSession            userSession = null;
@@ -72,25 +73,34 @@ public class IMServerProtocolDecoder extends MessageToMessageDecoder<ByteBuf> {
                     return;
                 }
                 /* 需要进行完全解密 */
-                String decrypt = null;
+                byte[] decrypt = null;
                 try {
-                    decrypt = AESHelper.decrypt(publish.getPayload().toByteArray(), session.get().getAesKey());
-                    if (decrypt == null || decrypt.length() == 0) {
-                        throw new DecoderException();
-                    }
+                    decrypt = AESHelper.decrypt(publish.getPayload().toByteArray(), session.get().getAesKey().getBytes());
                 } catch (Exception e) {
                     logger.error("the publish decrypt fail.", e);
                     ErrorResult errorResult = new ErrorResult(HDIMProtocol.HeadType.PUBLISH_RESPONSE_VALUE, ErrorCode.DECRYPT_DATA_FAIL);
                     list.add(errorResult);
                     return;
                 }
-                HDIMProtocol.Publish newPublish = publish.toBuilder().setPayload(ByteString.copyFrom(decrypt.getBytes("utf-8"))).build();
+                HDIMProtocol.Publish newPublish = publish.toBuilder().setPayload(ByteString.copyFrom(decrypt)).build();
                 list.add(newPublish);
-            } else if (HDIMProtocol.HeadType.LOGIN_OUT.getNumber() == op) {
+            } else if (HDIMProtocol.HeadType.LOGIN_OUT_VALUE == op) {
                 UserSession userSession = ctx.channel().attr(NettyChannelKeys.USER_SESSION).get();
                 String      clientId    = userSession.getClientId();
                 MemorySessionStore.getInstance().tickClient(clientId);
                 ctx.close();
+            } else if (HDIMProtocol.HeadType.PING_VALUE == op) {
+                HDIMProtocol.Ping ping = HDIMProtocol.Ping.newBuilder().build();
+                list.add(ping);
+            }
+
+            if (op != HDIMProtocol.HeadType.LOGIN_OUT_VALUE) {
+                UserSession userSession = ctx.channel().attr(NettyChannelKeys.USER_SESSION).get();
+                if (userSession != null) {
+                    String clientId  = userSession.getClientId();
+                    String clientKey = String.format(RedisConstants.USER_SESSION, clientId);
+                    RedisStandalone.REDIS.hset(clientKey.getBytes(), "lastActiveTime".getBytes(), String.valueOf(System.currentTimeMillis()).getBytes());
+                }
             }
         }
     }

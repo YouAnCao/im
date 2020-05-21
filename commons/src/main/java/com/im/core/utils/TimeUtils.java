@@ -13,9 +13,19 @@ import java.time.temporal.ChronoField;
  **/
 public class TimeUtils {
     public static Long getMicTime() {
-        Long currentTime = System.currentTimeMillis();
+        Long currentTime = System.currentTimeMillis() * 1000;
         Long nanoTime    = System.nanoTime();
-        Long nano        = nanoTime - (nanoTime / 1000000 * 1000000);
-        return currentTime * 1000 + nano;
+        return currentTime + (nanoTime - nanoTime / 1000000 * 1000000) / 1000;
+    }
+
+    public static void main(String[] args) {
+        long pre = 0L;
+        for (int i = 0; i < 100; i++) {
+            if (i % 2 == 0) {
+                pre = getMicTime();
+            } else {
+                System.out.print((getMicTime() > pre) ? 1 : 0);
+            }
+        }
     }
 }

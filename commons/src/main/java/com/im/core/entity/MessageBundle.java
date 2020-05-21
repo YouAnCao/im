@@ -23,14 +23,10 @@ public class MessageBundle {
         this.message = message.toByteArray();
     }
 
-    public HDIMProtocol.Message toMessage() {
+    public HDIMProtocol.Message toMessage() throws Exception {
         if (this.message != null && this.message.length > 0) {
             HDIMProtocol.Message messageBody = null;
-            try {
-                messageBody = HDIMProtocol.Message.parseFrom(message);
-            } catch (InvalidProtocolBufferException invalidProtocolBufferException) {
-                invalidProtocolBufferException.printStackTrace();
-            }
+            messageBody = HDIMProtocol.Message.parseFrom(message);
             return messageBody;
         }
         return null;
