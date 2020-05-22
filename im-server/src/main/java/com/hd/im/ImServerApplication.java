@@ -3,17 +3,26 @@ package com.hd.im;
 import com.hd.im.netty.codec.IMServerFrameDecoder;
 import com.hd.im.netty.codec.IMServerFrameEncoder;
 import com.hd.im.netty.codec.IMServerProtocolDecoder;
+import com.hd.im.netty.codec.IMServerProtocolEncoder;
 import com.hd.im.netty.handler.*;
 import io.netty.bootstrap.ServerBootstrap;
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.logging.LogLevel;
+import io.netty.handler.logging.LoggingHandler;
+import io.netty.handler.timeout.ReadTimeoutHandler;
+import io.netty.handler.timeout.WriteTimeoutHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+
+import java.util.concurrent.TimeUnit;
 
 @SpringBootApplication
 @EnableDiscoveryClient
@@ -24,6 +33,7 @@ public class ImServerApplication {
     public static void main(String[] args) throws InterruptedException {
         SpringApplication.run(ImServerApplication.class, args);
 
+        final ByteBuf     limiter     = Unpooled.copiedBuffer("\r\n".getBytes());
         NioEventLoopGroup boosGroup   = new NioEventLoopGroup(1);
         NioEventLoopGroup workerGroup = new NioEventLoopGroup();
 
@@ -52,16 +62,13 @@ public class ImServerApplication {
                     ChannelPipeline pipeline = nioSocketChannel.pipeline();
 
                     pipeline.addLast("idleCheck", new IMServerIdleHandler());
-                    //pipeline.addLast("IMServerLogger", new LoggingHandler(LogLevel.INFO));
-
+                    pipeline.addLast("IMServerLogger", new LoggingHandler(LogLevel.INFO));
                     pipeline.addLast("IMServerFrameDecoder", new IMServerFrameDecoder());
                     pipeline.addLast("IMServerFrameEncoder", new IMServerFrameEncoder());
                     pipeline.addLast(new IMServerProtocolDecoder());
+                    pipeline.addLast(new IMServerProtocolEncoder());
 
-                    pipeline.addLast("decoderErrorHandler", new IMServerProtocolErrorHandler());
-                    pipeline.addLast("loginHandler", new IMServerLoginHandler());
-                    pipeline.addLast("publishHandler", new IMServerPublishHandler());
-                    pipeline.addLast("pingHandler", new IMServerPingHandler());
+                    pipeline.addLast(new IMServerMessagePackHandler());
                 }
             });
 

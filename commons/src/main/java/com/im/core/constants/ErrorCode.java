@@ -9,6 +9,7 @@ package com.im.core.constants;
  **/
 public class ErrorCode {
 
+    public static final int NO_RESPONSE                = -1; /* 不需要响应 */
     public static final int SUCCESS                    = 0;
     public static final int SUCCESS_ZIP                = 1;
     public static final int REQ_DATA_PARSER_FAIL       = 2;

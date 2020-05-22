@@ -18,7 +18,7 @@ public class Client {
         NioEventLoopGroup workerGroup = new NioEventLoopGroup();
         Bootstrap         bootstrap   = new Bootstrap();
         bootstrap.group(workerGroup);
-
+        String password = "c8a9229820ffa315bc6a17a9e43d01a9";
         bootstrap.channel(NioSocketChannel.class);
         bootstrap.option(ChannelOption.SO_KEEPALIVE, true);
         bootstrap.handler(new ChannelInitializer<NioSocketChannel>() {
@@ -34,18 +34,32 @@ public class Client {
 
                     @Override
                     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-                        System.out.println("response :" + msg);
+                        if (msg != null) {
+                            ByteBuf data  = (ByteBuf) msg;
+                            int     len   = data.readInt();
+                            byte[]  trans = new byte[len];
+                            data.readBytes(trans);
+                            HDIMProtocol.MessagePack messagePack = HDIMProtocol.MessagePack.parseFrom(trans);
+                            int                      command     = messagePack.getCommand();
+                            HDIMProtocol.IMCommand   command1    = HDIMProtocol.IMCommand.forNumber(command);
+                            System.out.println(command1);
+                            byte[] decrypt = AESHelper.decrypt(messagePack.getPayload().toByteArray(), password.getBytes());
+                            if (command1 == HDIMProtocol.IMCommand.LOGIN) {
+                                HDIMProtocol.LoginResponse loginResponse = HDIMProtocol.LoginResponse.parseFrom(decrypt);
+                                System.out.println(loginResponse);
+                            }
+                        }
                     }
 
                 });
             }
         });
-        String                  pk            = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCmC8TYMczQDCrlxCkb5JJ1pxFiHStuo7skhtMm5aKMTtyI+FdFTFVF6gTgt01AbKEdFafO8htyXABkhPRKo4kD1J+r1z15ueFmFOXvjoWJUjVh2Z4U8m85qOlSwSxKBr0qDpyTuvU82T/iT8hFU4UvDydrkZu4IXS4m2uJJ0fuswIDAQAB";
+        String                  pk            = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCOTgXp6k2f2GHabZUnG5bEJjv3pY7e+DIi+DO7rAQ0gdQcLOgzacbNt41Mcu6qo+ZDA9i3t3F0s0m53+UfWGYQRswRer+llSIYPUkioXfUkyIIawDtJusF+cBQ9OG2YZ0LHklOAG/WN9+k9l2gpmhMs1Pcd3AchjacFiHy/b/I9QIDAQAB";
         String                  token         = "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ5aGpjIiwiZXhwIjoxNjIwNzAzMzYzLCJhdWQiOiJ1c2VyIiwianRpIjoiMTIzNzU4MDkwNjc5OTkyMzIwMiIsInVzZXJuYW1lIjoiaGRfYTdmNTM3ZWZmYTFiYTY2MGI5NTc3ZTI3ZDIzZjJhY2MiLCJyZWFsTmFtZSI6IjEyMyIsInBsYXRmb3JtIjoiQU5EUk9JRCIsImlwIjoiMTkyLjE2OC4wLjE0MSJ9.1V1mjKM6FEPTmZJjzHIE_G0CT3xJXJR755_8AERGUpY";
         ChannelFuture           channelFuture = bootstrap.connect(new InetSocketAddress("127.0.0.1", 2020)).sync();
         HDIMProtocol.ClientInfo android       = HDIMProtocol.ClientInfo.newBuilder().setClientId("0123456789").setUserId("1237580906799923202").setPlatForm(HDIMProtocol.PlatForm.ANDROID.getNumber()).setAppVersion("1.0.0").build();
-        String                  password      = "c8a9229820ffa315bc6a17a9e43d01a9";
-        byte[]                  encrypt       = AESHelper.encrypt(android.toByteArray(), password);
+
+        byte[] encrypt = AESHelper.encrypt(android.toByteArray(), password);
         //byte[]                  encrypt    = AESUtils.encrypt(android.toByteArray(), "123321");
         String encryptKey = null;
         try {
@@ -60,55 +74,59 @@ public class Client {
                 setEncryptData(ByteString.copyFrom(encrypt)).
                 setEncryptKey(ByteString.copyFrom(encryptKey, "utf-8")).build();
 
-        byte[]  data    = login.toByteArray();
-        ByteBuf byteBuf = Unpooled.buffer(data.length + 3);
-        byteBuf.writeShort(data.length + 1); // LENGTH
-        //byteBuf.writeShort(4); // LENGTH
-        byteBuf.writeByte(0); // OP
-        //byteBuf.writeBytes(new byte[]{1, 2, 3});
-        byteBuf.writeBytes(data);
+        byte[] data = login.toByteArray();
+
+        HDIMProtocol.MessagePack.Builder builder = HDIMProtocol.MessagePack.newBuilder();
+        builder.setPayload(ByteString.copyFrom(data));
+        builder.setCommand(HDIMProtocol.IMCommand.LOGIN_VALUE);
+        builder.setSequenceId(System.currentTimeMillis());
+        HDIMProtocol.MessagePack msgPack = builder.build();
+        byte[]                   bytes   = msgPack.toByteArray();
+        ByteBuf                  byteBuf = Unpooled.buffer(bytes.length + 4);
+        byteBuf.writeInt(bytes.length);
+        byteBuf.writeBytes(bytes);
         Channel channel = channelFuture.channel();
         channel.writeAndFlush(byteBuf);
 
-        HDIMProtocol.PullMessageRequest pullMessageRequest = HDIMProtocol.PullMessageRequest.newBuilder().setMessageHead(1L).build();
-        byte[]                          encrypt1           = AESHelper.encrypt(pullMessageRequest.toByteArray(), password);
-        byte[]                          decrypt            = AESHelper.decrypt(encrypt1, password.getBytes());
-        HDIMProtocol.PullMessageRequest request            = HDIMProtocol.PullMessageRequest.parseFrom(decrypt);
-        HDIMProtocol.Publish build = HDIMProtocol.Publish.newBuilder().setPublishType(HDIMProtocol.PublishType.MP_VALUE).
-                setSequenceId(System.currentTimeMillis()).
-                setPayload(ByteString.copyFrom(encrypt1)).build();
-        byte[]  payload = build.toByteArray();
-        ByteBuf mpBuf   = Unpooled.buffer(payload.length + 3);
-        mpBuf.writeShort(payload.length + 1);
-        mpBuf.writeByte(HDIMProtocol.HeadType.PUBLISH_VALUE);
-        mpBuf.writeBytes(payload);
-        channel.writeAndFlush(mpBuf);
+        //        HDIMProtocol.PullMessageRequest pullMessageRequest = HDIMProtocol.PullMessageRequest.newBuilder().setMessageHead(1L).build();
+        //        byte[]                          encrypt1           = AESHelper.encrypt(pullMessageRequest.toByteArray(), password);
+        //        byte[]                          decrypt            = AESHelper.decrypt(encrypt1, password.getBytes());
+        //        HDIMProtocol.PullMessageRequest request            = HDIMProtocol.PullMessageRequest.parseFrom(decrypt);
+        //        HDIMProtocol.Publish build = HDIMProtocol.Publish.newBuilder().setPublishType(HDIMProtocol.PublishType.MP_VALUE).
+        //                setSequenceId(System.currentTimeMillis()).
+        //                setPayload(ByteString.copyFrom(encrypt1)).build();
+        //        byte[]  payload = build.toByteArray();
+        //        ByteBuf mpBuf   = Unpooled.buffer(payload.length + 3);
+        //        mpBuf.writeShort(payload.length + 1);
+        //        mpBuf.writeByte(HDIMProtocol.HeadType.PUBLISH_VALUE);
+        //        mpBuf.writeBytes(payload);
+        //        channel.writeAndFlush(mpBuf);
 
 
         //        HDIMProtocol.Conversation conversation = HDIMProtocol.Conversation.newBuilder().setTarget("1235141817303592962").
         //                setType(HDIMProtocol.ConversationType.SIGNAL_VALUE).build();
-        //        HDIMProtocol.MessageContent messageContent = HDIMProtocol.MessageContent.newBuilder().setContentType(HDIMProtocol.MessageContentType.TEXT_VALUE).setData(ByteString.copyFrom("你好", "utf-8")).build();
-        //        HDIMProtocol.Message        message        = HDIMProtocol.Message.newBuilder().setConversation(conversation).setMessageContent(messageContent).setFrom("1237580906799923202").setTo("1235141817303592962").build();
+        //        HDIMProtocol.MessageContent      messageContent = HDIMProtocol.MessageContent.newBuilder().setContentType(HDIMProtocol.MessageContentType.TEXT_VALUE).setData(ByteString.copyFrom("你好", "utf-8")).build();
+        //        HDIMProtocol.Message             message        = HDIMProtocol.Message.newBuilder().setConversation(conversation).setMessageContent(messageContent).setFrom("1237580906799923202").setTo("1235141817303592962").build();
+        //        byte[]                           encrypt1       = AESHelper.encrypt(message.toByteArray(), password);
+        //        HDIMProtocol.MessagePack.Builder builder1       = HDIMProtocol.MessagePack.newBuilder();
+        //        builder1.setCommand(HDIMProtocol.IMCommand.MS_VALUE);
+        //        builder1.setSequenceId(System.currentTimeMillis());
+        //        builder1.setPayload(ByteString.copyFrom(encrypt1));
+        //        HDIMProtocol.MessagePack build    = builder1.build();
+        //        byte[]                   bytes1   = build.toByteArray();
+        //        ByteBuf                  transfer = channel.alloc().buffer();
+        //        transfer.writeShort(bytes1.length);
+        //        transfer.writeBytes(bytes1);
+        //        channel.writeAndFlush(transfer);
+        //        //
         //
-        //        byte[] encryptMsg = AESHelper.encrypt(message.toByteArray(), password);
-        //
-        //        HDIMProtocol.Publish publish  = HDIMProtocol.Publish.newBuilder().setSequenceId(1L).setPublishType(HDIMProtocol.PublishType.MS_VALUE).setPayload(ByteString.copyFrom(encryptMsg)).build();
-        //        byte[]               payload  = publish.toByteArray();
-        //        ByteBuf              transfer = Unpooled.buffer(payload.length + 3);
-        //
-        //
-        //        /* 解密 */
-        //        HDIMProtocol.Publish publish1 = HDIMProtocol.Publish.parseFrom(payload);
-        //        byte[]               encrypt1 = publish1.getPayload().toByteArray();
-        //        String               decrypt1 = AESHelper.decrypt(encrypt1, password);
-        //        HDIMProtocol.Message message1 = HDIMProtocol.Message.parseFrom(decrypt1.getBytes("utf-8"));
-        //        System.out.println(new String(message1.getMessageContent().getData().toByteArray()));
-        //
-        //        transfer.writeShort(payload.length + 1);
-        //        transfer.writeByte(HDIMProtocol.HeadType.PUBLISH_VALUE);
-        //        transfer.writeBytes(payload);
-        //
+        //        HDIMProtocol.MessagePack build1 = HDIMProtocol.MessagePack.newBuilder().setCommand(HDIMProtocol.IMCommand.PING_VALUE).build();
+        //        ByteBuf                  buffer = channel.alloc().buffer();
+        //        byte[]                   bytes2 = build1.toByteArray();
+        //        buffer.writeShort(bytes2.length);
+        //        buffer.writeBytes(bytes2);
+        //        channel.writeAndFlush(buffer);
 
-
+        System.in.read();
     }
 }

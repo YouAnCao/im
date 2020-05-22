@@ -3,9 +3,7 @@ package com.hd.im;
 import com.hd.im.consumer.MessageNotifyConsumer;
 import com.hd.im.consumer.MessageSortingConsumer;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
-import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Service;
 
 /**

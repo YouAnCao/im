@@ -2,7 +2,6 @@ package com.hd.im.handler;
 
 import com.hd.im.handler.annotation.Handler;
 import com.im.core.proto.HDIMProtocol;
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
@@ -19,7 +18,7 @@ import java.util.Map;
 @Component
 public class HandlerContext {
 
-    private static Map<HDIMProtocol.PublishType, IMHandler> handlers = new HashMap<>();
+    private static Map<HDIMProtocol.IMCommand, IMHandler> handlers = new HashMap<>();
 
     public static void registryAll(ApplicationContext context) {
         Map<String, IMHandler> beans = context.getBeansOfType(IMHandler.class);
@@ -32,7 +31,7 @@ public class HandlerContext {
         });
     }
 
-    public static IMHandler getHandler(HDIMProtocol.PublishType publishType) {
-        return handlers.get(publishType);
+    public static IMHandler getHandler(HDIMProtocol.IMCommand command) {
+        return handlers.get(command);
     }
 }

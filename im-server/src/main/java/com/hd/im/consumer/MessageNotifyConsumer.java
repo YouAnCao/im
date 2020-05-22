@@ -45,24 +45,19 @@ public class MessageNotifyConsumer {
                 try {
                     List<String> data = RedisStandalone.REDIS.brpop(10000, RedisConstants.MESSAGE_NOTIFY);
                     if (data != null && data.size() > 0) {
-                        String                     val                  = data.get(1);
-                        NotifyMessage              notifyMessage        = GSONParser.getInstance().fromJson(val, NotifyMessage.class);
-                        HDIMProtocol.NotifyMessage notifyMessageBody    = notifyMessage.toNotifyMessage();
-                        String                     clientId             = notifyMessage.getClientId();
-                        String                     userId               = notifyMessage.getUserId();
-                        UserSession                userSessionOnChannel = MemorySessionStore.getInstance().getUserSessionOnChannel(clientId, userId);
+                        String        val           = data.get(1);
+                        NotifyMessage notifyMessage = GSONParser.getInstance().fromJson(val, NotifyMessage.class);
+
+                        String      clientId             = notifyMessage.getClientId();
+                        String      userId               = notifyMessage.getUserId();
+                        UserSession userSessionOnChannel = MemorySessionStore.getInstance().getUserSessionOnChannel(clientId, userId);
                         if (userSessionOnChannel == null) {
                             logger.error("can not send message, the user session is not found. clientId:{}, userId:{}", clientId, userId);
                             continue;
                         }
-                        String               aesKey  = userSessionOnChannel.getAesKey();
-                        byte[]               encrypt = AESHelper.encrypt(notifyMessageBody.toByteArray(), aesKey);
-                        HDIMProtocol.Publish publish = HDIMProtocol.Publish.newBuilder().setPublishType(HDIMProtocol.PublishType.MN_VALUE).setPayload(ByteString.copyFrom(encrypt)).setSequenceId(System.currentTimeMillis()).build();
-                        byte[]               payload = publish.toByteArray();
-                        ByteBuf              buffer  = Unpooled.buffer(payload.length + 1);
-                        buffer.writeByte(HDIMProtocol.HeadType.PUBLISH_VALUE);
-                        buffer.writeBytes(payload);
-                        MemorySessionStore.getInstance().sendMessage(clientId, userId, buffer);
+                        HDIMProtocol.NotifyMessage notifyMessageBody = notifyMessage.toNotifyMessage();
+                        HDIMProtocol.MessagePack   messagePack       = HDIMProtocol.MessagePack.newBuilder().setPayload(ByteString.copyFrom(notifyMessageBody.toByteArray())).setSequenceId(System.currentTimeMillis()).setCommand(HDIMProtocol.IMCommand.MN_VALUE).build();
+                        MemorySessionStore.getInstance().sendMessage(clientId, userId, messagePack);
                     } else {
                         logger.info("message sorting heartbeat. {}", Thread.currentThread().getId());
                     }

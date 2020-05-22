@@ -142,6 +142,9 @@ public class MessageServiceImpl implements MessageService {
         Set<Tuple>                tuples       = RedisStandalone.REDIS.zrangeByScoreWithScores(messageInbox, String.valueOf(requestHead + 1), (System.currentTimeMillis() + 10000) + "000");
         if (tuples != null && tuples.size() > 0) {
             for (Tuple tuple : tuples) {
+                if (messages.size() > 30) {
+                    break;
+                }
                 long messageSeq = new BigDecimal(tuple.getScore()).longValue();
                 current = messageSeq;
                 head = messageSeq;
@@ -162,6 +165,7 @@ public class MessageServiceImpl implements MessageService {
                     continue;
                 }
             }
+
             if (messages.size() > 0) {
                 messageResponse = HDIMProtocol.PullMessageResponse.newBuilder().setHead(head).setCurrent(current).
                         addAllMessages(messages).build();

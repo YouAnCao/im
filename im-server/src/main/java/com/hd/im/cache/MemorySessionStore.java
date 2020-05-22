@@ -79,7 +79,7 @@ public class MemorySessionStore {
     private final static ConcurrentHashMap<String, ChannelHandlerContext> CONNECTIONS = new ConcurrentHashMap<>();
 
 
-    public boolean sendMessage(String clientId, String userId, ByteBuf payload) {
+    public boolean sendMessage(String clientId, String userId, Object payload) {
         ChannelHandlerContext channelHandlerContext = CONNECTIONS.get(clientId);
         if (channelHandlerContext != null && channelHandlerContext.channel().isActive()) {
             UserSession userSession = channelHandlerContext.channel().attr(NettyChannelKeys.USER_SESSION).get();

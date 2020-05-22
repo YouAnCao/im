@@ -12,5 +12,5 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE)
 @Component
 public @interface Handler {
-    HDIMProtocol.PublishType value();
+    HDIMProtocol.IMCommand value();
 }
