@@ -1,4 +1,4 @@
-package com.hd.im.handler.impl;
+package com.hd.im.handler.impl.message;
 
 import com.hd.im.handler.IMHandler;
 import com.hd.im.handler.annotation.Handler;

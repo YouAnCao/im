@@ -1,4 +1,4 @@
-package com.hd.im.handler.impl;
+package com.hd.im.handler.impl.message;
 
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.hd.im.context.ApplicationContextHolder;

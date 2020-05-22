@@ -1,4 +1,4 @@
-package com.hd.im.handler.impl;
+package com.hd.im.handler.impl.friend;
 
 import com.hd.im.handler.IMHandler;
 import com.hd.im.handler.annotation.Handler;
@@ -11,28 +11,28 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @ClassName: GetUserSettingHandler
- * @Description: 获取用户设置
+ * @ClassName: PullFriendHandler
+ * @Description: 拉取好友列表
  * @Author: Lyon.Cao
- * @Date: 2020/5/21 14:31
+ * @Date: 2020/5/22 17:44
  * @Version: 1.0.0
  **/
-@Handler(HDIMProtocol.IMCommand.USG)
-public class GetUserSettingHandler extends IMHandler {
+@Handler(HDIMProtocol.IMCommand.FP)
+public class PullFriendListHandler extends IMHandler {
 
-    private Logger logger = LoggerFactory.getLogger(GetUserSettingHandler.class);
+    private Logger logger = LoggerFactory.getLogger(PullFriendListHandler.class);
 
     @Override
     public int action(Attribute<UserSession> userSession, HDIMProtocol.MessagePack messagePack, ByteBuf payload) {
-        HDIMProtocol.UserSettingRequest userSettingRequest = null;
+        HDIMProtocol.GetFriendsRequest getFriendsRequest = null;
         try {
-            userSettingRequest = HDIMProtocol.UserSettingRequest.parseFrom(messagePack.getPayload().toByteArray());
+            getFriendsRequest = HDIMProtocol.GetFriendsRequest.parseFrom(messagePack.getPayload().toByteArray());
         } catch (Exception e) {
             logger.error("parser message fail.", e);
             return ErrorCode.REQ_DATA_PARSER_FAIL;
         }
+        long userFriendHead = getFriendsRequest.getUserFriendHead();
 
-        userSettingRequest.getUserSettingHead();
         return 0;
     }
 }

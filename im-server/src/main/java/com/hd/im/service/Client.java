@@ -10,6 +10,7 @@ import io.netty.buffer.Unpooled;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import io.netty.handler.codec.LengthFieldPrepender;
 
 import java.net.InetSocketAddress;
 
@@ -25,6 +26,7 @@ public class Client {
 
             @Override
             protected void initChannel(NioSocketChannel ch) throws Exception {
+                ch.pipeline().addLast(new LengthFieldPrepender(4));
                 ch.pipeline().addLast(new ChannelInboundHandlerAdapter() {
 
                     @Override
@@ -76,17 +78,17 @@ public class Client {
 
         byte[] data = login.toByteArray();
 
-        HDIMProtocol.MessagePack.Builder builder = HDIMProtocol.MessagePack.newBuilder();
-        builder.setPayload(ByteString.copyFrom(data));
-        builder.setCommand(HDIMProtocol.IMCommand.LOGIN_VALUE);
-        builder.setSequenceId(System.currentTimeMillis());
-        HDIMProtocol.MessagePack msgPack = builder.build();
-        byte[]                   bytes   = msgPack.toByteArray();
-        ByteBuf                  byteBuf = Unpooled.buffer(bytes.length + 4);
-        byteBuf.writeInt(bytes.length);
-        byteBuf.writeBytes(bytes);
+        //        HDIMProtocol.MessagePack.Builder builder = HDIMProtocol.MessagePack.newBuilder();
+        //        builder.setPayload(ByteString.copyFrom(data));
+        //        builder.setCommand(HDIMProtocol.IMCommand.LOGIN_VALUE);
+        //        builder.setSequenceId(System.currentTimeMillis());
+        //        HDIMProtocol.MessagePack msgPack = builder.build();
+        //        byte[]                   bytes   = msgPack.toByteArray();
+        //        ByteBuf                  byteBuf = Unpooled.buffer(bytes.length + 4);
+        //        byteBuf.writeInt(bytes.length);
+        //        byteBuf.writeBytes(bytes);
         Channel channel = channelFuture.channel();
-        channel.writeAndFlush(byteBuf);
+        //        channel.writeAndFlush(byteBuf);
 
         //        HDIMProtocol.PullMessageRequest pullMessageRequest = HDIMProtocol.PullMessageRequest.newBuilder().setMessageHead(1L).build();
         //        byte[]                          encrypt1           = AESHelper.encrypt(pullMessageRequest.toByteArray(), password);
@@ -120,12 +122,11 @@ public class Client {
         //        channel.writeAndFlush(transfer);
         //        //
         //
-        //        HDIMProtocol.MessagePack build1 = HDIMProtocol.MessagePack.newBuilder().setCommand(HDIMProtocol.IMCommand.PING_VALUE).build();
-        //        ByteBuf                  buffer = channel.alloc().buffer();
-        //        byte[]                   bytes2 = build1.toByteArray();
-        //        buffer.writeShort(bytes2.length);
-        //        buffer.writeBytes(bytes2);
-        //        channel.writeAndFlush(buffer);
+        HDIMProtocol.MessagePack build1 = HDIMProtocol.MessagePack.newBuilder().setCommand(HDIMProtocol.IMCommand.PING_VALUE).build();
+        ByteBuf                  buffer = channel.alloc().buffer();
+        byte[]                   bytes2 = build1.toByteArray();
+        buffer.writeBytes(bytes2);
+        channel.writeAndFlush(buffer);
 
         System.in.read();
     }

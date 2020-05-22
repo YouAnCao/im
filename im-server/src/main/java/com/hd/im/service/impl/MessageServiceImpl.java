@@ -1,7 +1,6 @@
 package com.hd.im.service.impl;
 
 import cn.hutool.core.util.StrUtil;
-import com.google.protobuf.InvalidProtocolBufferException;
 import com.hd.im.api.entity.MessageInfo;
 import com.hd.im.api.entity.UserMessageInfo;
 import com.hd.im.api.service.MessageApi;
@@ -18,7 +17,6 @@ import com.im.core.redis.RedisStandalone;
 import com.im.core.utils.GSONParser;
 import com.im.core.utils.TimeUtils;
 import io.netty.util.CharsetUtil;
-import jdk.nashorn.internal.parser.JSONParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -136,13 +134,16 @@ public class MessageServiceImpl implements MessageService {
         }
         long current = requestHead;
         long head    = requestHead;
+
         /* 读取用户收件箱 */
+        int                       dataLength   = 0;
         Set<HDIMProtocol.Message> messages     = new HashSet<>();
         String                    messageInbox = String.format(RedisConstants.USER_MESSAGE_INBOX, userId);
         Set<Tuple>                tuples       = RedisStandalone.REDIS.zrangeByScoreWithScores(messageInbox, String.valueOf(requestHead + 1), (System.currentTimeMillis() + 10000) + "000");
         if (tuples != null && tuples.size() > 0) {
             for (Tuple tuple : tuples) {
-                if (messages.size() > 30) {
+                /* 数据长度超过100KB时断开截断 */
+                if (dataLength > 102400) {
                     break;
                 }
                 long messageSeq = new BigDecimal(tuple.getScore()).longValue();
@@ -157,7 +158,9 @@ public class MessageServiceImpl implements MessageService {
                     }
                     MessageBundle messageBundle = GSONParser.getInstance().fromJson(messageContext, MessageBundle.class);
                     if (!clientId.equals(messageBundle.getFromClient()) || !userId.equals(messageBundle.getFromUser())) {
-                        HDIMProtocol.Message message = messageBundle.toMessage();
+                        HDIMProtocol.Message message        = messageBundle.toMessage();
+                        int                  serializedSize = message.getSerializedSize();
+                        dataLength += serializedSize;
                         messages.add(message);
                     }
                 } catch (Exception e) {
@@ -166,7 +169,12 @@ public class MessageServiceImpl implements MessageService {
                 }
             }
 
+            /* 消息出栈 */
             if (messages.size() > 0) {
+                if (messages.size() < tuples.size()) {
+                    Tuple last = (Tuple) tuples.toArray()[tuples.size() - 1];
+                    head = new BigDecimal(last.getScore()).longValue();
+                }
                 messageResponse = HDIMProtocol.PullMessageResponse.newBuilder().setHead(head).setCurrent(current).
                         addAllMessages(messages).build();
             }

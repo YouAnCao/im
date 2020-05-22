@@ -1,4 +1,4 @@
-package com.hd.im.handler.impl;
+package com.hd.im.handler.impl.user;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.StrUtil;

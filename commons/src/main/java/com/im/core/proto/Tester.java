@@ -16,13 +16,8 @@ import java.util.List;
  **/
 public class Tester {
     public static void main(String[] args) {
-        List<Integer> integers = Arrays.asList(1, 2, 3);
-        integers.forEach((i) -> {
-            if (i == 3) {
-                System.out.println(i);
-            } else {
-                return;
-            }
-        });
+        HDIMProtocol.MessagePack build = HDIMProtocol.MessagePack.newBuilder().setCommand(HDIMProtocol.IMCommand.LOGIN_VALUE).build();
+        System.out.println(build.getSerializedSize());
+        System.out.println(build.toByteArray().length);
     }
 }

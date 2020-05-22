@@ -10,7 +10,9 @@ import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
  */
 public class IMServerFrameDecoder extends LengthFieldBasedFrameDecoder {
 
+    private static final int DEFAULT_MAX_BYTES_IN_MESSAGE = 261120; /* 255KB */
+
     public IMServerFrameDecoder() {
-        super(Integer.MAX_VALUE, 0, 2, 0, 2);
+        super(DEFAULT_MAX_BYTES_IN_MESSAGE, 0, 4, 0, 4);
     }
 }

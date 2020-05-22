@@ -46,17 +46,61 @@ public final class HDIMProtocol {
      */
     MN(6),
     /**
-     * <code>USG = 7;</code>
+     * <code>MR = 7;</code>
      */
-    USG(7),
+    MR(7),
     /**
-     * <code>USP = 8;</code>
+     * <code>FAR = 8;</code>
      */
-    USP(8),
+    FAR(8),
     /**
-     * <code>USN = 9;</code>
+     * <code>FHR = 9;</code>
      */
-    USN(9),
+    FHR(9),
+    /**
+     * <code>FRP = 10;</code>
+     */
+    FRP(10),
+    /**
+     * <code>FRN = 11;</code>
+     */
+    FRN(11),
+    /**
+     * <code>FQA = 12;</code>
+     */
+    FQA(12),
+    /**
+     * <code>FDL = 13;</code>
+     */
+    FDL(13),
+    /**
+     * <code>FP = 14;</code>
+     */
+    FP(14),
+    /**
+     * <code>FN = 15;</code>
+     */
+    FN(15),
+    /**
+     * <code>BLU = 16;</code>
+     */
+    BLU(16),
+    /**
+     * <code>MFA = 17;</code>
+     */
+    MFA(17),
+    /**
+     * <code>USG = 18;</code>
+     */
+    USG(18),
+    /**
+     * <code>USP = 19;</code>
+     */
+    USP(19),
+    /**
+     * <code>USN = 20;</code>
+     */
+    USN(20),
     UNRECOGNIZED(-1),
     ;
 
@@ -89,17 +133,61 @@ public final class HDIMProtocol {
      */
     public static final int MN_VALUE = 6;
     /**
-     * <code>USG = 7;</code>
+     * <code>MR = 7;</code>
      */
-    public static final int USG_VALUE = 7;
+    public static final int MR_VALUE = 7;
     /**
-     * <code>USP = 8;</code>
+     * <code>FAR = 8;</code>
      */
-    public static final int USP_VALUE = 8;
+    public static final int FAR_VALUE = 8;
     /**
-     * <code>USN = 9;</code>
+     * <code>FHR = 9;</code>
      */
-    public static final int USN_VALUE = 9;
+    public static final int FHR_VALUE = 9;
+    /**
+     * <code>FRP = 10;</code>
+     */
+    public static final int FRP_VALUE = 10;
+    /**
+     * <code>FRN = 11;</code>
+     */
+    public static final int FRN_VALUE = 11;
+    /**
+     * <code>FQA = 12;</code>
+     */
+    public static final int FQA_VALUE = 12;
+    /**
+     * <code>FDL = 13;</code>
+     */
+    public static final int FDL_VALUE = 13;
+    /**
+     * <code>FP = 14;</code>
+     */
+    public static final int FP_VALUE = 14;
+    /**
+     * <code>FN = 15;</code>
+     */
+    public static final int FN_VALUE = 15;
+    /**
+     * <code>BLU = 16;</code>
+     */
+    public static final int BLU_VALUE = 16;
+    /**
+     * <code>MFA = 17;</code>
+     */
+    public static final int MFA_VALUE = 17;
+    /**
+     * <code>USG = 18;</code>
+     */
+    public static final int USG_VALUE = 18;
+    /**
+     * <code>USP = 19;</code>
+     */
+    public static final int USP_VALUE = 19;
+    /**
+     * <code>USN = 20;</code>
+     */
+    public static final int USN_VALUE = 20;
 
 
     public final int getNumber() {
@@ -127,9 +215,20 @@ public final class HDIMProtocol {
         case 4: return MS;
         case 5: return MP;
         case 6: return MN;
-        case 7: return USG;
-        case 8: return USP;
-        case 9: return USN;
+        case 7: return MR;
+        case 8: return FAR;
+        case 9: return FHR;
+        case 10: return FRP;
+        case 11: return FRN;
+        case 12: return FQA;
+        case 13: return FDL;
+        case 14: return FP;
+        case 15: return FN;
+        case 16: return BLU;
+        case 17: return MFA;
+        case 18: return USG;
+        case 19: return USP;
+        case 20: return USN;
         default: return null;
       }
     }
@@ -540,37 +639,61 @@ public final class HDIMProtocol {
   }
 
   /**
-   * Protobuf enum {@code MessageSettingType}
+   * Protobuf enum {@code UserSettingType}
    */
-  public enum MessageSettingType
+  public enum UserSettingType
       implements com.google.protobuf.ProtocolMessageEnum {
     /**
-     * <code>GLOBAL_SILENT = 0;</code>
+     * <code>USER_SETTING_RESERVED = 0;</code>
      */
-    GLOBAL_SILENT(0),
+    USER_SETTING_RESERVED(0),
     /**
-     * <code>CONVERSATION_SILENT = 1;</code>
+     * <code>GLOBAL_SILENT = 1;</code>
      */
-    CONVERSATION_SILENT(1),
+    GLOBAL_SILENT(1),
     /**
-     * <code>CONVERSATION_TOP = 2;</code>
+     * <code>CONVERSATION_SILENT = 2;</code>
      */
-    CONVERSATION_TOP(2),
+    CONVERSATION_SILENT(2),
+    /**
+     * <code>CONVERSATION_TOP = 3;</code>
+     */
+    CONVERSATION_TOP(3),
+    /**
+     * <code>GLOBAL_HIDDEN_NOTIFICATION_DETAIL = 4;</code>
+     */
+    GLOBAL_HIDDEN_NOTIFICATION_DETAIL(4),
+    /**
+     * <code>USER_FRIEND_STAR = 5;</code>
+     */
+    USER_FRIEND_STAR(5),
     UNRECOGNIZED(-1),
     ;
 
     /**
-     * <code>GLOBAL_SILENT = 0;</code>
+     * <code>USER_SETTING_RESERVED = 0;</code>
      */
-    public static final int GLOBAL_SILENT_VALUE = 0;
+    public static final int USER_SETTING_RESERVED_VALUE = 0;
     /**
-     * <code>CONVERSATION_SILENT = 1;</code>
+     * <code>GLOBAL_SILENT = 1;</code>
      */
-    public static final int CONVERSATION_SILENT_VALUE = 1;
+    public static final int GLOBAL_SILENT_VALUE = 1;
     /**
-     * <code>CONVERSATION_TOP = 2;</code>
+     * <code>CONVERSATION_SILENT = 2;</code>
      */
-    public static final int CONVERSATION_TOP_VALUE = 2;
+    public static final int CONVERSATION_SILENT_VALUE = 2;
+    /**
+     * <code>CONVERSATION_TOP = 3;</code>
+     */
+    public static final int CONVERSATION_TOP_VALUE = 3;
+    /**
+     * <code>GLOBAL_HIDDEN_NOTIFICATION_DETAIL = 4;</code>
+     */
+    public static final int GLOBAL_HIDDEN_NOTIFICATION_DETAIL_VALUE = 4;
+    /**
+     * <code>USER_FRIEND_STAR = 5;</code>
+     */
+    public static final int USER_FRIEND_STAR_VALUE = 5;
 
 
     public final int getNumber() {
@@ -585,28 +708,31 @@ public final class HDIMProtocol {
      * @deprecated Use {@link #forNumber(int)} instead.
      */
     @Deprecated
-    public static MessageSettingType valueOf(int value) {
+    public static UserSettingType valueOf(int value) {
       return forNumber(value);
     }
 
-    public static MessageSettingType forNumber(int value) {
+    public static UserSettingType forNumber(int value) {
       switch (value) {
-        case 0: return GLOBAL_SILENT;
-        case 1: return CONVERSATION_SILENT;
-        case 2: return CONVERSATION_TOP;
+        case 0: return USER_SETTING_RESERVED;
+        case 1: return GLOBAL_SILENT;
+        case 2: return CONVERSATION_SILENT;
+        case 3: return CONVERSATION_TOP;
+        case 4: return GLOBAL_HIDDEN_NOTIFICATION_DETAIL;
+        case 5: return USER_FRIEND_STAR;
         default: return null;
       }
     }
 
-    public static com.google.protobuf.Internal.EnumLiteMap<MessageSettingType>
+    public static com.google.protobuf.Internal.EnumLiteMap<UserSettingType>
         internalGetValueMap() {
       return internalValueMap;
     }
     private static final com.google.protobuf.Internal.EnumLiteMap<
-        MessageSettingType> internalValueMap =
-          new com.google.protobuf.Internal.EnumLiteMap<MessageSettingType>() {
-            public MessageSettingType findValueByNumber(int number) {
-              return MessageSettingType.forNumber(number);
+        UserSettingType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<UserSettingType>() {
+            public UserSettingType findValueByNumber(int number) {
+              return UserSettingType.forNumber(number);
             }
           };
 
@@ -623,9 +749,9 @@ public final class HDIMProtocol {
       return HDIMProtocol.getDescriptor().getEnumTypes().get(4);
     }
 
-    private static final MessageSettingType[] VALUES = values();
+    private static final UserSettingType[] VALUES = values();
 
-    public static MessageSettingType valueOf(
+    public static UserSettingType valueOf(
         com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
         throw new IllegalArgumentException(
@@ -639,11 +765,11 @@ public final class HDIMProtocol {
 
     private final int value;
 
-    private MessageSettingType(int value) {
+    private UserSettingType(int value) {
       this.value = value;
     }
 
-    // @@protoc_insertion_point(enum_scope:MessageSettingType)
+    // @@protoc_insertion_point(enum_scope:UserSettingType)
   }
 
   public interface MessagePackOrBuilder extends
@@ -9556,9 +9682,14 @@ public final class HDIMProtocol {
         getKeyBytes();
 
     /**
-     * <code>optional uint32 value = 3;</code>
+     * <code>optional string value = 3;</code>
      */
-    int getValue();
+    String getValue();
+    /**
+     * <code>optional string value = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getValueBytes();
 
     /**
      * <code>optional uint64 dt = 4;</code>
@@ -9579,7 +9710,7 @@ public final class HDIMProtocol {
     private UserSetting() {
       userSettingType_ = 0;
       key_ = "";
-      value_ = 0;
+      value_ = "";
       dt_ = 0L;
     }
 
@@ -9619,9 +9750,10 @@ public final class HDIMProtocol {
               key_ = s;
               break;
             }
-            case 24: {
+            case 26: {
+              String s = input.readStringRequireUtf8();
 
-              value_ = input.readUInt32();
+              value_ = s;
               break;
             }
             case 32: {
@@ -9696,12 +9828,37 @@ public final class HDIMProtocol {
     }
 
     public static final int VALUE_FIELD_NUMBER = 3;
-    private int value_;
+    private volatile Object value_;
     /**
-     * <code>optional uint32 value = 3;</code>
+     * <code>optional string value = 3;</code>
      */
-    public int getValue() {
-      return value_;
+    public String getValue() {
+      Object ref = value_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        value_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string value = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getValueBytes() {
+      Object ref = value_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        value_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     public static final int DT_FIELD_NUMBER = 4;
@@ -9731,8 +9888,8 @@ public final class HDIMProtocol {
       if (!getKeyBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, key_);
       }
-      if (value_ != 0) {
-        output.writeUInt32(3, value_);
+      if (!getValueBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, value_);
       }
       if (dt_ != 0L) {
         output.writeUInt64(4, dt_);
@@ -9751,9 +9908,8 @@ public final class HDIMProtocol {
       if (!getKeyBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, key_);
       }
-      if (value_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(3, value_);
+      if (!getValueBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, value_);
       }
       if (dt_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
@@ -9779,8 +9935,8 @@ public final class HDIMProtocol {
           == other.getUserSettingType());
       result = result && getKey()
           .equals(other.getKey());
-      result = result && (getValue()
-          == other.getValue());
+      result = result && getValue()
+          .equals(other.getValue());
       result = result && (getDt()
           == other.getDt());
       return result;
@@ -9798,7 +9954,7 @@ public final class HDIMProtocol {
       hash = (37 * hash) + KEY_FIELD_NUMBER;
       hash = (53 * hash) + getKey().hashCode();
       hash = (37 * hash) + VALUE_FIELD_NUMBER;
-      hash = (53 * hash) + getValue();
+      hash = (53 * hash) + getValue().hashCode();
       hash = (37 * hash) + DT_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getDt());
@@ -9924,7 +10080,7 @@ public final class HDIMProtocol {
 
         key_ = "";
 
-        value_ = 0;
+        value_ = "";
 
         dt_ = 0L;
 
@@ -10002,8 +10158,9 @@ public final class HDIMProtocol {
           key_ = other.key_;
           onChanged();
         }
-        if (other.getValue() != 0) {
-          setValue(other.getValue());
+        if (!other.getValue().isEmpty()) {
+          value_ = other.value_;
+          onChanged();
         }
         if (other.getDt() != 0L) {
           setDt(other.getDt());
@@ -10129,28 +10286,71 @@ public final class HDIMProtocol {
         return this;
       }
 
-      private int value_ ;
+      private Object value_ = "";
       /**
-       * <code>optional uint32 value = 3;</code>
+       * <code>optional string value = 3;</code>
        */
-      public int getValue() {
-        return value_;
+      public String getValue() {
+        Object ref = value_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          value_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
       }
       /**
-       * <code>optional uint32 value = 3;</code>
+       * <code>optional string value = 3;</code>
        */
-      public Builder setValue(int value) {
-        
+      public com.google.protobuf.ByteString
+          getValueBytes() {
+        Object ref = value_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          value_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string value = 3;</code>
+       */
+      public Builder setValue(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
         value_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional uint32 value = 3;</code>
+       * <code>optional string value = 3;</code>
        */
       public Builder clearValue() {
         
-        value_ = 0;
+        value_ = getDefaultInstance().getValue();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string value = 3;</code>
+       */
+      public Builder setValueBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        value_ = value;
         onChanged();
         return this;
       }
@@ -10224,436 +10424,6 @@ public final class HDIMProtocol {
     }
 
     public UserSetting getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface GetUserSettingRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:GetUserSettingRequest)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>optional uint64 userSettingHead = 1;</code>
-     */
-    long getUserSettingHead();
-  }
-  /**
-   * Protobuf type {@code GetUserSettingRequest}
-   */
-  public  static final class GetUserSettingRequest extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:GetUserSettingRequest)
-      GetUserSettingRequestOrBuilder {
-    // Use GetUserSettingRequest.newBuilder() to construct.
-    private GetUserSettingRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private GetUserSettingRequest() {
-      userSettingHead_ = 0L;
-    }
-
-    @Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
-    }
-    private GetUserSettingRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      int mutable_bitField0_ = 0;
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 8: {
-
-              userSettingHead_ = input.readUInt64();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return HDIMProtocol.internal_static_GetUserSettingRequest_descriptor;
-    }
-
-    protected FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return HDIMProtocol.internal_static_GetUserSettingRequest_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              GetUserSettingRequest.class, Builder.class);
-    }
-
-    public static final int USERSETTINGHEAD_FIELD_NUMBER = 1;
-    private long userSettingHead_;
-    /**
-     * <code>optional uint64 userSettingHead = 1;</code>
-     */
-    public long getUserSettingHead() {
-      return userSettingHead_;
-    }
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (userSettingHead_ != 0L) {
-        output.writeUInt64(1, userSettingHead_);
-      }
-    }
-
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (userSettingHead_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt64Size(1, userSettingHead_);
-      }
-      memoizedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @Override
-    public boolean equals(final Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof GetUserSettingRequest)) {
-        return super.equals(obj);
-      }
-      GetUserSettingRequest other = (GetUserSettingRequest) obj;
-
-      boolean result = true;
-      result = result && (getUserSettingHead()
-          == other.getUserSettingHead());
-      return result;
-    }
-
-    @Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
-      hash = (37 * hash) + USERSETTINGHEAD_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getUserSettingHead());
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static GetUserSettingRequest parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static GetUserSettingRequest parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static GetUserSettingRequest parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static GetUserSettingRequest parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static GetUserSettingRequest parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static GetUserSettingRequest parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static GetUserSettingRequest parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static GetUserSettingRequest parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static GetUserSettingRequest parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static GetUserSettingRequest parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(GetUserSettingRequest prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @Override
-    protected Builder newBuilderForType(
-        BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code GetUserSettingRequest}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:GetUserSettingRequest)
-        GetUserSettingRequestOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return HDIMProtocol.internal_static_GetUserSettingRequest_descriptor;
-      }
-
-      protected FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return HDIMProtocol.internal_static_GetUserSettingRequest_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                GetUserSettingRequest.class, Builder.class);
-      }
-
-      // Construct using HDIMProtocol.GetUserSettingRequest.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      public Builder clear() {
-        super.clear();
-        userSettingHead_ = 0L;
-
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return HDIMProtocol.internal_static_GetUserSettingRequest_descriptor;
-      }
-
-      public GetUserSettingRequest getDefaultInstanceForType() {
-        return GetUserSettingRequest.getDefaultInstance();
-      }
-
-      public GetUserSettingRequest build() {
-        GetUserSettingRequest result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public GetUserSettingRequest buildPartial() {
-        GetUserSettingRequest result = new GetUserSettingRequest(this);
-        result.userSettingHead_ = userSettingHead_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof GetUserSettingRequest) {
-          return mergeFrom((GetUserSettingRequest)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(GetUserSettingRequest other) {
-        if (other == GetUserSettingRequest.getDefaultInstance()) return this;
-        if (other.getUserSettingHead() != 0L) {
-          setUserSettingHead(other.getUserSettingHead());
-        }
-        onChanged();
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        GetUserSettingRequest parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (GetUserSettingRequest) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private long userSettingHead_ ;
-      /**
-       * <code>optional uint64 userSettingHead = 1;</code>
-       */
-      public long getUserSettingHead() {
-        return userSettingHead_;
-      }
-      /**
-       * <code>optional uint64 userSettingHead = 1;</code>
-       */
-      public Builder setUserSettingHead(long value) {
-        
-        userSettingHead_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional uint64 userSettingHead = 1;</code>
-       */
-      public Builder clearUserSettingHead() {
-        
-        userSettingHead_ = 0L;
-        onChanged();
-        return this;
-      }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:GetUserSettingRequest)
-    }
-
-    // @@protoc_insertion_point(class_scope:GetUserSettingRequest)
-    private static final GetUserSettingRequest DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new GetUserSettingRequest();
-    }
-
-    public static GetUserSettingRequest getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<GetUserSettingRequest>
-        PARSER = new com.google.protobuf.AbstractParser<GetUserSettingRequest>() {
-      public GetUserSettingRequest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new GetUserSettingRequest(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<GetUserSettingRequest> parser() {
-      return PARSER;
-    }
-
-    @Override
-    public com.google.protobuf.Parser<GetUserSettingRequest> getParserForType() {
-      return PARSER;
-    }
-
-    public GetUserSettingRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -11394,45 +11164,28 @@ public final class HDIMProtocol {
 
   }
 
-  public interface ModifyUserSettingRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:ModifyUserSettingRequest)
+  public interface ModifyUserSettingResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:ModifyUserSettingResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional uint32 userSettingType = 1;</code>
+     * <code>optional uint64 dt = 1;</code>
      */
-    int getUserSettingType();
-
-    /**
-     * <code>optional string key = 2;</code>
-     */
-    String getKey();
-    /**
-     * <code>optional string key = 2;</code>
-     */
-    com.google.protobuf.ByteString
-        getKeyBytes();
-
-    /**
-     * <code>optional uint32 value = 3;</code>
-     */
-    int getValue();
+    long getDt();
   }
   /**
-   * Protobuf type {@code ModifyUserSettingRequest}
+   * Protobuf type {@code ModifyUserSettingResponse}
    */
-  public  static final class ModifyUserSettingRequest extends
+  public  static final class ModifyUserSettingResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:ModifyUserSettingRequest)
-      ModifyUserSettingRequestOrBuilder {
-    // Use ModifyUserSettingRequest.newBuilder() to construct.
-    private ModifyUserSettingRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      // @@protoc_insertion_point(message_implements:ModifyUserSettingResponse)
+      ModifyUserSettingResponseOrBuilder {
+    // Use ModifyUserSettingResponse.newBuilder() to construct.
+    private ModifyUserSettingResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private ModifyUserSettingRequest() {
-      userSettingType_ = 0;
-      key_ = "";
-      value_ = 0;
+    private ModifyUserSettingResponse() {
+      dt_ = 0L;
     }
 
     @Override
@@ -11440,7 +11193,7 @@ public final class HDIMProtocol {
     getUnknownFields() {
       return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
     }
-    private ModifyUserSettingRequest(
+    private ModifyUserSettingResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -11462,18 +11215,7 @@ public final class HDIMProtocol {
             }
             case 8: {
 
-              userSettingType_ = input.readUInt32();
-              break;
-            }
-            case 18: {
-              String s = input.readStringRequireUtf8();
-
-              key_ = s;
-              break;
-            }
-            case 24: {
-
-              value_ = input.readUInt32();
+              dt_ = input.readUInt64();
               break;
             }
           }
@@ -11489,66 +11231,23 @@ public final class HDIMProtocol {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return HDIMProtocol.internal_static_ModifyUserSettingRequest_descriptor;
+      return HDIMProtocol.internal_static_ModifyUserSettingResponse_descriptor;
     }
 
     protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return HDIMProtocol.internal_static_ModifyUserSettingRequest_fieldAccessorTable
+      return HDIMProtocol.internal_static_ModifyUserSettingResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ModifyUserSettingRequest.class, Builder.class);
+              ModifyUserSettingResponse.class, Builder.class);
     }
 
-    public static final int USERSETTINGTYPE_FIELD_NUMBER = 1;
-    private int userSettingType_;
+    public static final int DT_FIELD_NUMBER = 1;
+    private long dt_;
     /**
-     * <code>optional uint32 userSettingType = 1;</code>
+     * <code>optional uint64 dt = 1;</code>
      */
-    public int getUserSettingType() {
-      return userSettingType_;
-    }
-
-    public static final int KEY_FIELD_NUMBER = 2;
-    private volatile Object key_;
-    /**
-     * <code>optional string key = 2;</code>
-     */
-    public String getKey() {
-      Object ref = key_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        key_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>optional string key = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getKeyBytes() {
-      Object ref = key_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        key_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int VALUE_FIELD_NUMBER = 3;
-    private int value_;
-    /**
-     * <code>optional uint32 value = 3;</code>
-     */
-    public int getValue() {
-      return value_;
+    public long getDt() {
+      return dt_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -11563,14 +11262,8 @@ public final class HDIMProtocol {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (userSettingType_ != 0) {
-        output.writeUInt32(1, userSettingType_);
-      }
-      if (!getKeyBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, key_);
-      }
-      if (value_ != 0) {
-        output.writeUInt32(3, value_);
+      if (dt_ != 0L) {
+        output.writeUInt64(1, dt_);
       }
     }
 
@@ -11579,16 +11272,9 @@ public final class HDIMProtocol {
       if (size != -1) return size;
 
       size = 0;
-      if (userSettingType_ != 0) {
+      if (dt_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, userSettingType_);
-      }
-      if (!getKeyBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, key_);
-      }
-      if (value_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(3, value_);
+          .computeUInt64Size(1, dt_);
       }
       memoizedSize = size;
       return size;
@@ -11600,18 +11286,14 @@ public final class HDIMProtocol {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof ModifyUserSettingRequest)) {
+      if (!(obj instanceof ModifyUserSettingResponse)) {
         return super.equals(obj);
       }
-      ModifyUserSettingRequest other = (ModifyUserSettingRequest) obj;
+      ModifyUserSettingResponse other = (ModifyUserSettingResponse) obj;
 
       boolean result = true;
-      result = result && (getUserSettingType()
-          == other.getUserSettingType());
-      result = result && getKey()
-          .equals(other.getKey());
-      result = result && (getValue()
-          == other.getValue());
+      result = result && (getDt()
+          == other.getDt());
       return result;
     }
 
@@ -11622,69 +11304,66 @@ public final class HDIMProtocol {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptorForType().hashCode();
-      hash = (37 * hash) + USERSETTINGTYPE_FIELD_NUMBER;
-      hash = (53 * hash) + getUserSettingType();
-      hash = (37 * hash) + KEY_FIELD_NUMBER;
-      hash = (53 * hash) + getKey().hashCode();
-      hash = (37 * hash) + VALUE_FIELD_NUMBER;
-      hash = (53 * hash) + getValue();
+      hash = (37 * hash) + DT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getDt());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static ModifyUserSettingRequest parseFrom(
+    public static ModifyUserSettingResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static ModifyUserSettingRequest parseFrom(
+    public static ModifyUserSettingResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static ModifyUserSettingRequest parseFrom(byte[] data)
+    public static ModifyUserSettingResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static ModifyUserSettingRequest parseFrom(
+    public static ModifyUserSettingResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static ModifyUserSettingRequest parseFrom(java.io.InputStream input)
+    public static ModifyUserSettingResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static ModifyUserSettingRequest parseFrom(
+    public static ModifyUserSettingResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static ModifyUserSettingRequest parseDelimitedFrom(java.io.InputStream input)
+    public static ModifyUserSettingResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static ModifyUserSettingRequest parseDelimitedFrom(
+    public static ModifyUserSettingResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static ModifyUserSettingRequest parseFrom(
+    public static ModifyUserSettingResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static ModifyUserSettingRequest parseFrom(
+    public static ModifyUserSettingResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -11696,7 +11375,7 @@ public final class HDIMProtocol {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(ModifyUserSettingRequest prototype) {
+    public static Builder newBuilder(ModifyUserSettingResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -11711,25 +11390,25 @@ public final class HDIMProtocol {
       return builder;
     }
     /**
-     * Protobuf type {@code ModifyUserSettingRequest}
+     * Protobuf type {@code ModifyUserSettingResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:ModifyUserSettingRequest)
-        ModifyUserSettingRequestOrBuilder {
+        // @@protoc_insertion_point(builder_implements:ModifyUserSettingResponse)
+        ModifyUserSettingResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return HDIMProtocol.internal_static_ModifyUserSettingRequest_descriptor;
+        return HDIMProtocol.internal_static_ModifyUserSettingResponse_descriptor;
       }
 
       protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return HDIMProtocol.internal_static_ModifyUserSettingRequest_fieldAccessorTable
+        return HDIMProtocol.internal_static_ModifyUserSettingResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                ModifyUserSettingRequest.class, Builder.class);
+                ModifyUserSettingResponse.class, Builder.class);
       }
 
-      // Construct using HDIMProtocol.ModifyUserSettingRequest.newBuilder()
+      // Construct using HDIMProtocol.ModifyUserSettingResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -11746,37 +11425,31 @@ public final class HDIMProtocol {
       }
       public Builder clear() {
         super.clear();
-        userSettingType_ = 0;
-
-        key_ = "";
-
-        value_ = 0;
+        dt_ = 0L;
 
         return this;
       }
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return HDIMProtocol.internal_static_ModifyUserSettingRequest_descriptor;
+        return HDIMProtocol.internal_static_ModifyUserSettingResponse_descriptor;
       }
 
-      public ModifyUserSettingRequest getDefaultInstanceForType() {
-        return ModifyUserSettingRequest.getDefaultInstance();
+      public ModifyUserSettingResponse getDefaultInstanceForType() {
+        return ModifyUserSettingResponse.getDefaultInstance();
       }
 
-      public ModifyUserSettingRequest build() {
-        ModifyUserSettingRequest result = buildPartial();
+      public ModifyUserSettingResponse build() {
+        ModifyUserSettingResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public ModifyUserSettingRequest buildPartial() {
-        ModifyUserSettingRequest result = new ModifyUserSettingRequest(this);
-        result.userSettingType_ = userSettingType_;
-        result.key_ = key_;
-        result.value_ = value_;
+      public ModifyUserSettingResponse buildPartial() {
+        ModifyUserSettingResponse result = new ModifyUserSettingResponse(this);
+        result.dt_ = dt_;
         onBuilt();
         return result;
       }
@@ -11808,25 +11481,18 @@ public final class HDIMProtocol {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof ModifyUserSettingRequest) {
-          return mergeFrom((ModifyUserSettingRequest)other);
+        if (other instanceof ModifyUserSettingResponse) {
+          return mergeFrom((ModifyUserSettingResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(ModifyUserSettingRequest other) {
-        if (other == ModifyUserSettingRequest.getDefaultInstance()) return this;
-        if (other.getUserSettingType() != 0) {
-          setUserSettingType(other.getUserSettingType());
-        }
-        if (!other.getKey().isEmpty()) {
-          key_ = other.key_;
-          onChanged();
-        }
-        if (other.getValue() != 0) {
-          setValue(other.getValue());
+      public Builder mergeFrom(ModifyUserSettingResponse other) {
+        if (other == ModifyUserSettingResponse.getDefaultInstance()) return this;
+        if (other.getDt() != 0L) {
+          setDt(other.getDt());
         }
         onChanged();
         return this;
@@ -11840,11 +11506,11 @@ public final class HDIMProtocol {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        ModifyUserSettingRequest parsedMessage = null;
+        ModifyUserSettingResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (ModifyUserSettingRequest) e.getUnfinishedMessage();
+          parsedMessage = (ModifyUserSettingResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -11854,123 +11520,28 @@ public final class HDIMProtocol {
         return this;
       }
 
-      private int userSettingType_ ;
+      private long dt_ ;
       /**
-       * <code>optional uint32 userSettingType = 1;</code>
+       * <code>optional uint64 dt = 1;</code>
        */
-      public int getUserSettingType() {
-        return userSettingType_;
+      public long getDt() {
+        return dt_;
       }
       /**
-       * <code>optional uint32 userSettingType = 1;</code>
+       * <code>optional uint64 dt = 1;</code>
        */
-      public Builder setUserSettingType(int value) {
+      public Builder setDt(long value) {
         
-        userSettingType_ = value;
+        dt_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional uint32 userSettingType = 1;</code>
+       * <code>optional uint64 dt = 1;</code>
        */
-      public Builder clearUserSettingType() {
+      public Builder clearDt() {
         
-        userSettingType_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private Object key_ = "";
-      /**
-       * <code>optional string key = 2;</code>
-       */
-      public String getKey() {
-        Object ref = key_;
-        if (!(ref instanceof String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
-          key_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      /**
-       * <code>optional string key = 2;</code>
-       */
-      public com.google.protobuf.ByteString
-          getKeyBytes() {
-        Object ref = key_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
-          key_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string key = 2;</code>
-       */
-      public Builder setKey(
-          String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        key_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string key = 2;</code>
-       */
-      public Builder clearKey() {
-        
-        key_ = getDefaultInstance().getKey();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string key = 2;</code>
-       */
-      public Builder setKeyBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        key_ = value;
-        onChanged();
-        return this;
-      }
-
-      private int value_ ;
-      /**
-       * <code>optional uint32 value = 3;</code>
-       */
-      public int getValue() {
-        return value_;
-      }
-      /**
-       * <code>optional uint32 value = 3;</code>
-       */
-      public Builder setValue(int value) {
-        
-        value_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional uint32 value = 3;</code>
-       */
-      public Builder clearValue() {
-        
-        value_ = 0;
+        dt_ = 0L;
         onChanged();
         return this;
       }
@@ -11985,39 +11556,2874 @@ public final class HDIMProtocol {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:ModifyUserSettingRequest)
+      // @@protoc_insertion_point(builder_scope:ModifyUserSettingResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:ModifyUserSettingRequest)
-    private static final ModifyUserSettingRequest DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:ModifyUserSettingResponse)
+    private static final ModifyUserSettingResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new ModifyUserSettingRequest();
+      DEFAULT_INSTANCE = new ModifyUserSettingResponse();
     }
 
-    public static ModifyUserSettingRequest getDefaultInstance() {
+    public static ModifyUserSettingResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<ModifyUserSettingRequest>
-        PARSER = new com.google.protobuf.AbstractParser<ModifyUserSettingRequest>() {
-      public ModifyUserSettingRequest parsePartialFrom(
+    private static final com.google.protobuf.Parser<ModifyUserSettingResponse>
+        PARSER = new com.google.protobuf.AbstractParser<ModifyUserSettingResponse>() {
+      public ModifyUserSettingResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new ModifyUserSettingRequest(input, extensionRegistry);
+          return new ModifyUserSettingResponse(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<ModifyUserSettingRequest> parser() {
+    public static com.google.protobuf.Parser<ModifyUserSettingResponse> parser() {
       return PARSER;
     }
 
     @Override
-    public com.google.protobuf.Parser<ModifyUserSettingRequest> getParserForType() {
+    public com.google.protobuf.Parser<ModifyUserSettingResponse> getParserForType() {
       return PARSER;
     }
 
-    public ModifyUserSettingRequest getDefaultInstanceForType() {
+    public ModifyUserSettingResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface BlackUserRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:BlackUserRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional string uid = 1;</code>
+     */
+    String getUid();
+    /**
+     * <code>optional string uid = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getUidBytes();
+
+    /**
+     * <code>optional uint32 status = 2;</code>
+     */
+    int getStatus();
+  }
+  /**
+   * Protobuf type {@code BlackUserRequest}
+   */
+  public  static final class BlackUserRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:BlackUserRequest)
+      BlackUserRequestOrBuilder {
+    // Use BlackUserRequest.newBuilder() to construct.
+    private BlackUserRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private BlackUserRequest() {
+      uid_ = "";
+      status_ = 0;
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private BlackUserRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              String s = input.readStringRequireUtf8();
+
+              uid_ = s;
+              break;
+            }
+            case 16: {
+
+              status_ = input.readUInt32();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return HDIMProtocol.internal_static_BlackUserRequest_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return HDIMProtocol.internal_static_BlackUserRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              BlackUserRequest.class, Builder.class);
+    }
+
+    public static final int UID_FIELD_NUMBER = 1;
+    private volatile Object uid_;
+    /**
+     * <code>optional string uid = 1;</code>
+     */
+    public String getUid() {
+      Object ref = uid_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        uid_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string uid = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUidBytes() {
+      Object ref = uid_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        uid_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int STATUS_FIELD_NUMBER = 2;
+    private int status_;
+    /**
+     * <code>optional uint32 status = 2;</code>
+     */
+    public int getStatus() {
+      return status_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getUidBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, uid_);
+      }
+      if (status_ != 0) {
+        output.writeUInt32(2, status_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getUidBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, uid_);
+      }
+      if (status_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(2, status_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof BlackUserRequest)) {
+        return super.equals(obj);
+      }
+      BlackUserRequest other = (BlackUserRequest) obj;
+
+      boolean result = true;
+      result = result && getUid()
+          .equals(other.getUid());
+      result = result && (getStatus()
+          == other.getStatus());
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (37 * hash) + UID_FIELD_NUMBER;
+      hash = (53 * hash) + getUid().hashCode();
+      hash = (37 * hash) + STATUS_FIELD_NUMBER;
+      hash = (53 * hash) + getStatus();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static BlackUserRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static BlackUserRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static BlackUserRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static BlackUserRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static BlackUserRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static BlackUserRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static BlackUserRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static BlackUserRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static BlackUserRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static BlackUserRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(BlackUserRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code BlackUserRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:BlackUserRequest)
+        BlackUserRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return HDIMProtocol.internal_static_BlackUserRequest_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return HDIMProtocol.internal_static_BlackUserRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                BlackUserRequest.class, Builder.class);
+      }
+
+      // Construct using HDIMProtocol.BlackUserRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        uid_ = "";
+
+        status_ = 0;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return HDIMProtocol.internal_static_BlackUserRequest_descriptor;
+      }
+
+      public BlackUserRequest getDefaultInstanceForType() {
+        return BlackUserRequest.getDefaultInstance();
+      }
+
+      public BlackUserRequest build() {
+        BlackUserRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public BlackUserRequest buildPartial() {
+        BlackUserRequest result = new BlackUserRequest(this);
+        result.uid_ = uid_;
+        result.status_ = status_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof BlackUserRequest) {
+          return mergeFrom((BlackUserRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(BlackUserRequest other) {
+        if (other == BlackUserRequest.getDefaultInstance()) return this;
+        if (!other.getUid().isEmpty()) {
+          uid_ = other.uid_;
+          onChanged();
+        }
+        if (other.getStatus() != 0) {
+          setStatus(other.getStatus());
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        BlackUserRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (BlackUserRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private Object uid_ = "";
+      /**
+       * <code>optional string uid = 1;</code>
+       */
+      public String getUid() {
+        Object ref = uid_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          uid_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      /**
+       * <code>optional string uid = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUidBytes() {
+        Object ref = uid_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          uid_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string uid = 1;</code>
+       */
+      public Builder setUid(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        uid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string uid = 1;</code>
+       */
+      public Builder clearUid() {
+        
+        uid_ = getDefaultInstance().getUid();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string uid = 1;</code>
+       */
+      public Builder setUidBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        uid_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int status_ ;
+      /**
+       * <code>optional uint32 status = 2;</code>
+       */
+      public int getStatus() {
+        return status_;
+      }
+      /**
+       * <code>optional uint32 status = 2;</code>
+       */
+      public Builder setStatus(int value) {
+        
+        status_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 status = 2;</code>
+       */
+      public Builder clearStatus() {
+        
+        status_ = 0;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:BlackUserRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:BlackUserRequest)
+    private static final BlackUserRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new BlackUserRequest();
+    }
+
+    public static BlackUserRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<BlackUserRequest>
+        PARSER = new com.google.protobuf.AbstractParser<BlackUserRequest>() {
+      public BlackUserRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new BlackUserRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<BlackUserRequest> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<BlackUserRequest> getParserForType() {
+      return PARSER;
+    }
+
+    public BlackUserRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GetFriendsRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:GetFriendsRequest)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional uint64 userFriendHead = 1;</code>
+     */
+    long getUserFriendHead();
+  }
+  /**
+   * Protobuf type {@code GetFriendsRequest}
+   */
+  public  static final class GetFriendsRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:GetFriendsRequest)
+      GetFriendsRequestOrBuilder {
+    // Use GetFriendsRequest.newBuilder() to construct.
+    private GetFriendsRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetFriendsRequest() {
+      userFriendHead_ = 0L;
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private GetFriendsRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+
+              userFriendHead_ = input.readUInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return HDIMProtocol.internal_static_GetFriendsRequest_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return HDIMProtocol.internal_static_GetFriendsRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              GetFriendsRequest.class, Builder.class);
+    }
+
+    public static final int USERFRIENDHEAD_FIELD_NUMBER = 1;
+    private long userFriendHead_;
+    /**
+     * <code>optional uint64 userFriendHead = 1;</code>
+     */
+    public long getUserFriendHead() {
+      return userFriendHead_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (userFriendHead_ != 0L) {
+        output.writeUInt64(1, userFriendHead_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (userFriendHead_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(1, userFriendHead_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof GetFriendsRequest)) {
+        return super.equals(obj);
+      }
+      GetFriendsRequest other = (GetFriendsRequest) obj;
+
+      boolean result = true;
+      result = result && (getUserFriendHead()
+          == other.getUserFriendHead());
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (37 * hash) + USERFRIENDHEAD_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getUserFriendHead());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static GetFriendsRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static GetFriendsRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static GetFriendsRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static GetFriendsRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static GetFriendsRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static GetFriendsRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static GetFriendsRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static GetFriendsRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static GetFriendsRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static GetFriendsRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(GetFriendsRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code GetFriendsRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:GetFriendsRequest)
+        GetFriendsRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return HDIMProtocol.internal_static_GetFriendsRequest_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return HDIMProtocol.internal_static_GetFriendsRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                GetFriendsRequest.class, Builder.class);
+      }
+
+      // Construct using HDIMProtocol.GetFriendsRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        userFriendHead_ = 0L;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return HDIMProtocol.internal_static_GetFriendsRequest_descriptor;
+      }
+
+      public GetFriendsRequest getDefaultInstanceForType() {
+        return GetFriendsRequest.getDefaultInstance();
+      }
+
+      public GetFriendsRequest build() {
+        GetFriendsRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public GetFriendsRequest buildPartial() {
+        GetFriendsRequest result = new GetFriendsRequest(this);
+        result.userFriendHead_ = userFriendHead_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof GetFriendsRequest) {
+          return mergeFrom((GetFriendsRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(GetFriendsRequest other) {
+        if (other == GetFriendsRequest.getDefaultInstance()) return this;
+        if (other.getUserFriendHead() != 0L) {
+          setUserFriendHead(other.getUserFriendHead());
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        GetFriendsRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (GetFriendsRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long userFriendHead_ ;
+      /**
+       * <code>optional uint64 userFriendHead = 1;</code>
+       */
+      public long getUserFriendHead() {
+        return userFriendHead_;
+      }
+      /**
+       * <code>optional uint64 userFriendHead = 1;</code>
+       */
+      public Builder setUserFriendHead(long value) {
+        
+        userFriendHead_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint64 userFriendHead = 1;</code>
+       */
+      public Builder clearUserFriendHead() {
+        
+        userFriendHead_ = 0L;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:GetFriendsRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:GetFriendsRequest)
+    private static final GetFriendsRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new GetFriendsRequest();
+    }
+
+    public static GetFriendsRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetFriendsRequest>
+        PARSER = new com.google.protobuf.AbstractParser<GetFriendsRequest>() {
+      public GetFriendsRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new GetFriendsRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetFriendsRequest> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<GetFriendsRequest> getParserForType() {
+      return PARSER;
+    }
+
+    public GetFriendsRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GetFriendsResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:GetFriendsResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .Friend friends = 1;</code>
+     */
+    java.util.List<Friend>
+        getFriendsList();
+    /**
+     * <code>repeated .Friend friends = 1;</code>
+     */
+    Friend getFriends(int index);
+    /**
+     * <code>repeated .Friend friends = 1;</code>
+     */
+    int getFriendsCount();
+    /**
+     * <code>repeated .Friend friends = 1;</code>
+     */
+    java.util.List<? extends FriendOrBuilder>
+        getFriendsOrBuilderList();
+    /**
+     * <code>repeated .Friend friends = 1;</code>
+     */
+    FriendOrBuilder getFriendsOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code GetFriendsResponse}
+   */
+  public  static final class GetFriendsResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:GetFriendsResponse)
+      GetFriendsResponseOrBuilder {
+    // Use GetFriendsResponse.newBuilder() to construct.
+    private GetFriendsResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetFriendsResponse() {
+      friends_ = java.util.Collections.emptyList();
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private GetFriendsResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                friends_ = new java.util.ArrayList<Friend>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              friends_.add(
+                  input.readMessage(Friend.parser(), extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          friends_ = java.util.Collections.unmodifiableList(friends_);
+        }
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return HDIMProtocol.internal_static_GetFriendsResponse_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return HDIMProtocol.internal_static_GetFriendsResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              GetFriendsResponse.class, Builder.class);
+    }
+
+    public static final int        FRIENDS_FIELD_NUMBER = 1;
+    private java.util.List<Friend> friends_;
+    /**
+     * <code>repeated .Friend friends = 1;</code>
+     */
+    public java.util.List<Friend> getFriendsList() {
+      return friends_;
+    }
+    /**
+     * <code>repeated .Friend friends = 1;</code>
+     */
+    public java.util.List<? extends FriendOrBuilder>
+        getFriendsOrBuilderList() {
+      return friends_;
+    }
+    /**
+     * <code>repeated .Friend friends = 1;</code>
+     */
+    public int getFriendsCount() {
+      return friends_.size();
+    }
+    /**
+     * <code>repeated .Friend friends = 1;</code>
+     */
+    public Friend getFriends(int index) {
+      return friends_.get(index);
+    }
+    /**
+     * <code>repeated .Friend friends = 1;</code>
+     */
+    public FriendOrBuilder getFriendsOrBuilder(
+        int index) {
+      return friends_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < friends_.size(); i++) {
+        output.writeMessage(1, friends_.get(i));
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < friends_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, friends_.get(i));
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof GetFriendsResponse)) {
+        return super.equals(obj);
+      }
+      GetFriendsResponse other = (GetFriendsResponse) obj;
+
+      boolean result = true;
+      result = result && getFriendsList()
+          .equals(other.getFriendsList());
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      if (getFriendsCount() > 0) {
+        hash = (37 * hash) + FRIENDS_FIELD_NUMBER;
+        hash = (53 * hash) + getFriendsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static GetFriendsResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static GetFriendsResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static GetFriendsResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static GetFriendsResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static GetFriendsResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static GetFriendsResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static GetFriendsResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static GetFriendsResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static GetFriendsResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static GetFriendsResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(GetFriendsResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code GetFriendsResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:GetFriendsResponse)
+        GetFriendsResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return HDIMProtocol.internal_static_GetFriendsResponse_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return HDIMProtocol.internal_static_GetFriendsResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                GetFriendsResponse.class, Builder.class);
+      }
+
+      // Construct using HDIMProtocol.GetFriendsResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getFriendsFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        if (friendsBuilder_ == null) {
+          friends_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          friendsBuilder_.clear();
+        }
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return HDIMProtocol.internal_static_GetFriendsResponse_descriptor;
+      }
+
+      public GetFriendsResponse getDefaultInstanceForType() {
+        return GetFriendsResponse.getDefaultInstance();
+      }
+
+      public GetFriendsResponse build() {
+        GetFriendsResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public GetFriendsResponse buildPartial() {
+        GetFriendsResponse result          = new GetFriendsResponse(this);
+        int                             from_bitField0_ = bitField0_;
+        if (friendsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            friends_ = java.util.Collections.unmodifiableList(friends_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.friends_ = friends_;
+        } else {
+          result.friends_ = friendsBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof GetFriendsResponse) {
+          return mergeFrom((GetFriendsResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(GetFriendsResponse other) {
+        if (other == GetFriendsResponse.getDefaultInstance()) return this;
+        if (friendsBuilder_ == null) {
+          if (!other.friends_.isEmpty()) {
+            if (friends_.isEmpty()) {
+              friends_ = other.friends_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureFriendsIsMutable();
+              friends_.addAll(other.friends_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.friends_.isEmpty()) {
+            if (friendsBuilder_.isEmpty()) {
+              friendsBuilder_.dispose();
+              friendsBuilder_ = null;
+              friends_ = other.friends_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              friendsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getFriendsFieldBuilder() : null;
+            } else {
+              friendsBuilder_.addAllMessages(other.friends_);
+            }
+          }
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        GetFriendsResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (GetFriendsResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<Friend> friends_ =
+        java.util.Collections.emptyList();
+      private void ensureFriendsIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          friends_ = new java.util.ArrayList<Friend>(friends_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          Friend, Friend.Builder, FriendOrBuilder> friendsBuilder_;
+
+      /**
+       * <code>repeated .Friend friends = 1;</code>
+       */
+      public java.util.List<Friend> getFriendsList() {
+        if (friendsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(friends_);
+        } else {
+          return friendsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .Friend friends = 1;</code>
+       */
+      public int getFriendsCount() {
+        if (friendsBuilder_ == null) {
+          return friends_.size();
+        } else {
+          return friendsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .Friend friends = 1;</code>
+       */
+      public Friend getFriends(int index) {
+        if (friendsBuilder_ == null) {
+          return friends_.get(index);
+        } else {
+          return friendsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .Friend friends = 1;</code>
+       */
+      public Builder setFriends(
+          int index, Friend value) {
+        if (friendsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFriendsIsMutable();
+          friends_.set(index, value);
+          onChanged();
+        } else {
+          friendsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Friend friends = 1;</code>
+       */
+      public Builder setFriends(
+          int index, Friend.Builder builderForValue) {
+        if (friendsBuilder_ == null) {
+          ensureFriendsIsMutable();
+          friends_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          friendsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Friend friends = 1;</code>
+       */
+      public Builder addFriends(Friend value) {
+        if (friendsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFriendsIsMutable();
+          friends_.add(value);
+          onChanged();
+        } else {
+          friendsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Friend friends = 1;</code>
+       */
+      public Builder addFriends(
+          int index, Friend value) {
+        if (friendsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureFriendsIsMutable();
+          friends_.add(index, value);
+          onChanged();
+        } else {
+          friendsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Friend friends = 1;</code>
+       */
+      public Builder addFriends(
+          Friend.Builder builderForValue) {
+        if (friendsBuilder_ == null) {
+          ensureFriendsIsMutable();
+          friends_.add(builderForValue.build());
+          onChanged();
+        } else {
+          friendsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Friend friends = 1;</code>
+       */
+      public Builder addFriends(
+          int index, Friend.Builder builderForValue) {
+        if (friendsBuilder_ == null) {
+          ensureFriendsIsMutable();
+          friends_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          friendsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Friend friends = 1;</code>
+       */
+      public Builder addAllFriends(
+          Iterable<? extends Friend> values) {
+        if (friendsBuilder_ == null) {
+          ensureFriendsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, friends_);
+          onChanged();
+        } else {
+          friendsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Friend friends = 1;</code>
+       */
+      public Builder clearFriends() {
+        if (friendsBuilder_ == null) {
+          friends_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          friendsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Friend friends = 1;</code>
+       */
+      public Builder removeFriends(int index) {
+        if (friendsBuilder_ == null) {
+          ensureFriendsIsMutable();
+          friends_.remove(index);
+          onChanged();
+        } else {
+          friendsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Friend friends = 1;</code>
+       */
+      public Friend.Builder getFriendsBuilder(
+          int index) {
+        return getFriendsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .Friend friends = 1;</code>
+       */
+      public FriendOrBuilder getFriendsOrBuilder(
+          int index) {
+        if (friendsBuilder_ == null) {
+          return friends_.get(index);  } else {
+          return friendsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .Friend friends = 1;</code>
+       */
+      public java.util.List<? extends FriendOrBuilder>
+           getFriendsOrBuilderList() {
+        if (friendsBuilder_ != null) {
+          return friendsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(friends_);
+        }
+      }
+      /**
+       * <code>repeated .Friend friends = 1;</code>
+       */
+      public Friend.Builder addFriendsBuilder() {
+        return getFriendsFieldBuilder().addBuilder(
+            Friend.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .Friend friends = 1;</code>
+       */
+      public Friend.Builder addFriendsBuilder(
+          int index) {
+        return getFriendsFieldBuilder().addBuilder(
+            index, Friend.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .Friend friends = 1;</code>
+       */
+      public java.util.List<Friend.Builder>
+           getFriendsBuilderList() {
+        return getFriendsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          Friend, Friend.Builder, FriendOrBuilder>
+          getFriendsFieldBuilder() {
+        if (friendsBuilder_ == null) {
+          friendsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              Friend, Friend.Builder, FriendOrBuilder>(
+                  friends_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          friends_ = null;
+        }
+        return friendsBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:GetFriendsResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:GetFriendsResponse)
+    private static final GetFriendsResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new GetFriendsResponse();
+    }
+
+    public static GetFriendsResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetFriendsResponse>
+        PARSER = new com.google.protobuf.AbstractParser<GetFriendsResponse>() {
+      public GetFriendsResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new GetFriendsResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetFriendsResponse> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<GetFriendsResponse> getParserForType() {
+      return PARSER;
+    }
+
+    public GetFriendsResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface FriendOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Friend)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional string uid = 1;</code>
+     */
+    String getUid();
+    /**
+     * <code>optional string uid = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getUidBytes();
+
+    /**
+     * <code>optional int32 state = 2;</code>
+     */
+    int getState();
+
+    /**
+     * <code>optional int64 update_dt = 3;</code>
+     */
+    long getUpdateDt();
+
+    /**
+     * <code>optional string alias = 4;</code>
+     */
+    String getAlias();
+    /**
+     * <code>optional string alias = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getAliasBytes();
+
+    /**
+     * <code>optional int32 friend_origin = 5;</code>
+     */
+    int getFriendOrigin();
+
+    /**
+     * <code>optional string display_name = 6;</code>
+     */
+    String getDisplayName();
+    /**
+     * <code>optional string display_name = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getDisplayNameBytes();
+
+    /**
+     * <code>optional string portrait = 7;</code>
+     */
+    String getPortrait();
+    /**
+     * <code>optional string portrait = 7;</code>
+     */
+    com.google.protobuf.ByteString
+        getPortraitBytes();
+  }
+  /**
+   * Protobuf type {@code Friend}
+   */
+  public  static final class Friend extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:Friend)
+      FriendOrBuilder {
+    // Use Friend.newBuilder() to construct.
+    private Friend(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Friend() {
+      uid_ = "";
+      state_ = 0;
+      updateDt_ = 0L;
+      alias_ = "";
+      friendOrigin_ = 0;
+      displayName_ = "";
+      portrait_ = "";
+    }
+
+    @Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private Friend(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              String s = input.readStringRequireUtf8();
+
+              uid_ = s;
+              break;
+            }
+            case 16: {
+
+              state_ = input.readInt32();
+              break;
+            }
+            case 24: {
+
+              updateDt_ = input.readInt64();
+              break;
+            }
+            case 34: {
+              String s = input.readStringRequireUtf8();
+
+              alias_ = s;
+              break;
+            }
+            case 40: {
+
+              friendOrigin_ = input.readInt32();
+              break;
+            }
+            case 50: {
+              String s = input.readStringRequireUtf8();
+
+              displayName_ = s;
+              break;
+            }
+            case 58: {
+              String s = input.readStringRequireUtf8();
+
+              portrait_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return HDIMProtocol.internal_static_Friend_descriptor;
+    }
+
+    protected FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return HDIMProtocol.internal_static_Friend_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              Friend.class, Builder.class);
+    }
+
+    public static final int UID_FIELD_NUMBER = 1;
+    private volatile Object uid_;
+    /**
+     * <code>optional string uid = 1;</code>
+     */
+    public String getUid() {
+      Object ref = uid_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        uid_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string uid = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getUidBytes() {
+      Object ref = uid_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        uid_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int STATE_FIELD_NUMBER = 2;
+    private int state_;
+    /**
+     * <code>optional int32 state = 2;</code>
+     */
+    public int getState() {
+      return state_;
+    }
+
+    public static final int UPDATE_DT_FIELD_NUMBER = 3;
+    private long updateDt_;
+    /**
+     * <code>optional int64 update_dt = 3;</code>
+     */
+    public long getUpdateDt() {
+      return updateDt_;
+    }
+
+    public static final int ALIAS_FIELD_NUMBER = 4;
+    private volatile Object alias_;
+    /**
+     * <code>optional string alias = 4;</code>
+     */
+    public String getAlias() {
+      Object ref = alias_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        alias_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string alias = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAliasBytes() {
+      Object ref = alias_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        alias_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int FRIEND_ORIGIN_FIELD_NUMBER = 5;
+    private int friendOrigin_;
+    /**
+     * <code>optional int32 friend_origin = 5;</code>
+     */
+    public int getFriendOrigin() {
+      return friendOrigin_;
+    }
+
+    public static final int DISPLAY_NAME_FIELD_NUMBER = 6;
+    private volatile Object displayName_;
+    /**
+     * <code>optional string display_name = 6;</code>
+     */
+    public String getDisplayName() {
+      Object ref = displayName_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        displayName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string display_name = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDisplayNameBytes() {
+      Object ref = displayName_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        displayName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PORTRAIT_FIELD_NUMBER = 7;
+    private volatile Object portrait_;
+    /**
+     * <code>optional string portrait = 7;</code>
+     */
+    public String getPortrait() {
+      Object ref = portrait_;
+      if (ref instanceof String) {
+        return (String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        String s = bs.toStringUtf8();
+        portrait_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string portrait = 7;</code>
+     */
+    public com.google.protobuf.ByteString
+        getPortraitBytes() {
+      Object ref = portrait_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (String) ref);
+        portrait_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getUidBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, uid_);
+      }
+      if (state_ != 0) {
+        output.writeInt32(2, state_);
+      }
+      if (updateDt_ != 0L) {
+        output.writeInt64(3, updateDt_);
+      }
+      if (!getAliasBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, alias_);
+      }
+      if (friendOrigin_ != 0) {
+        output.writeInt32(5, friendOrigin_);
+      }
+      if (!getDisplayNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, displayName_);
+      }
+      if (!getPortraitBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, portrait_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getUidBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, uid_);
+      }
+      if (state_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, state_);
+      }
+      if (updateDt_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, updateDt_);
+      }
+      if (!getAliasBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, alias_);
+      }
+      if (friendOrigin_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(5, friendOrigin_);
+      }
+      if (!getDisplayNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, displayName_);
+      }
+      if (!getPortraitBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, portrait_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @Override
+    public boolean equals(final Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof Friend)) {
+        return super.equals(obj);
+      }
+      Friend other = (Friend) obj;
+
+      boolean result = true;
+      result = result && getUid()
+          .equals(other.getUid());
+      result = result && (getState()
+          == other.getState());
+      result = result && (getUpdateDt()
+          == other.getUpdateDt());
+      result = result && getAlias()
+          .equals(other.getAlias());
+      result = result && (getFriendOrigin()
+          == other.getFriendOrigin());
+      result = result && getDisplayName()
+          .equals(other.getDisplayName());
+      result = result && getPortrait()
+          .equals(other.getPortrait());
+      return result;
+    }
+
+    @Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (37 * hash) + UID_FIELD_NUMBER;
+      hash = (53 * hash) + getUid().hashCode();
+      hash = (37 * hash) + STATE_FIELD_NUMBER;
+      hash = (53 * hash) + getState();
+      hash = (37 * hash) + UPDATE_DT_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getUpdateDt());
+      hash = (37 * hash) + ALIAS_FIELD_NUMBER;
+      hash = (53 * hash) + getAlias().hashCode();
+      hash = (37 * hash) + FRIEND_ORIGIN_FIELD_NUMBER;
+      hash = (53 * hash) + getFriendOrigin();
+      hash = (37 * hash) + DISPLAY_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getDisplayName().hashCode();
+      hash = (37 * hash) + PORTRAIT_FIELD_NUMBER;
+      hash = (53 * hash) + getPortrait().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static Friend parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Friend parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Friend parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static Friend parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static Friend parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Friend parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Friend parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static Friend parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static Friend parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static Friend parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(Friend prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @Override
+    protected Builder newBuilderForType(
+        BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code Friend}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Friend)
+        FriendOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return HDIMProtocol.internal_static_Friend_descriptor;
+      }
+
+      protected FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return HDIMProtocol.internal_static_Friend_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                Friend.class, Builder.class);
+      }
+
+      // Construct using HDIMProtocol.Friend.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        uid_ = "";
+
+        state_ = 0;
+
+        updateDt_ = 0L;
+
+        alias_ = "";
+
+        friendOrigin_ = 0;
+
+        displayName_ = "";
+
+        portrait_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return HDIMProtocol.internal_static_Friend_descriptor;
+      }
+
+      public Friend getDefaultInstanceForType() {
+        return Friend.getDefaultInstance();
+      }
+
+      public Friend build() {
+        Friend result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public Friend buildPartial() {
+        Friend result = new Friend(this);
+        result.uid_ = uid_;
+        result.state_ = state_;
+        result.updateDt_ = updateDt_;
+        result.alias_ = alias_;
+        result.friendOrigin_ = friendOrigin_;
+        result.displayName_ = displayName_;
+        result.portrait_ = portrait_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof Friend) {
+          return mergeFrom((Friend)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(Friend other) {
+        if (other == Friend.getDefaultInstance()) return this;
+        if (!other.getUid().isEmpty()) {
+          uid_ = other.uid_;
+          onChanged();
+        }
+        if (other.getState() != 0) {
+          setState(other.getState());
+        }
+        if (other.getUpdateDt() != 0L) {
+          setUpdateDt(other.getUpdateDt());
+        }
+        if (!other.getAlias().isEmpty()) {
+          alias_ = other.alias_;
+          onChanged();
+        }
+        if (other.getFriendOrigin() != 0) {
+          setFriendOrigin(other.getFriendOrigin());
+        }
+        if (!other.getDisplayName().isEmpty()) {
+          displayName_ = other.displayName_;
+          onChanged();
+        }
+        if (!other.getPortrait().isEmpty()) {
+          portrait_ = other.portrait_;
+          onChanged();
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        Friend parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (Friend) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private Object uid_ = "";
+      /**
+       * <code>optional string uid = 1;</code>
+       */
+      public String getUid() {
+        Object ref = uid_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          uid_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      /**
+       * <code>optional string uid = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getUidBytes() {
+        Object ref = uid_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          uid_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string uid = 1;</code>
+       */
+      public Builder setUid(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        uid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string uid = 1;</code>
+       */
+      public Builder clearUid() {
+        
+        uid_ = getDefaultInstance().getUid();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string uid = 1;</code>
+       */
+      public Builder setUidBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        uid_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int state_ ;
+      /**
+       * <code>optional int32 state = 2;</code>
+       */
+      public int getState() {
+        return state_;
+      }
+      /**
+       * <code>optional int32 state = 2;</code>
+       */
+      public Builder setState(int value) {
+        
+        state_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 state = 2;</code>
+       */
+      public Builder clearState() {
+        
+        state_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private long updateDt_ ;
+      /**
+       * <code>optional int64 update_dt = 3;</code>
+       */
+      public long getUpdateDt() {
+        return updateDt_;
+      }
+      /**
+       * <code>optional int64 update_dt = 3;</code>
+       */
+      public Builder setUpdateDt(long value) {
+        
+        updateDt_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 update_dt = 3;</code>
+       */
+      public Builder clearUpdateDt() {
+        
+        updateDt_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private Object alias_ = "";
+      /**
+       * <code>optional string alias = 4;</code>
+       */
+      public String getAlias() {
+        Object ref = alias_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          alias_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      /**
+       * <code>optional string alias = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAliasBytes() {
+        Object ref = alias_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          alias_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string alias = 4;</code>
+       */
+      public Builder setAlias(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        alias_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string alias = 4;</code>
+       */
+      public Builder clearAlias() {
+        
+        alias_ = getDefaultInstance().getAlias();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string alias = 4;</code>
+       */
+      public Builder setAliasBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        alias_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int friendOrigin_ ;
+      /**
+       * <code>optional int32 friend_origin = 5;</code>
+       */
+      public int getFriendOrigin() {
+        return friendOrigin_;
+      }
+      /**
+       * <code>optional int32 friend_origin = 5;</code>
+       */
+      public Builder setFriendOrigin(int value) {
+        
+        friendOrigin_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 friend_origin = 5;</code>
+       */
+      public Builder clearFriendOrigin() {
+        
+        friendOrigin_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private Object displayName_ = "";
+      /**
+       * <code>optional string display_name = 6;</code>
+       */
+      public String getDisplayName() {
+        Object ref = displayName_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          displayName_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      /**
+       * <code>optional string display_name = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDisplayNameBytes() {
+        Object ref = displayName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          displayName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string display_name = 6;</code>
+       */
+      public Builder setDisplayName(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        displayName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string display_name = 6;</code>
+       */
+      public Builder clearDisplayName() {
+        
+        displayName_ = getDefaultInstance().getDisplayName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string display_name = 6;</code>
+       */
+      public Builder setDisplayNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        displayName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private Object portrait_ = "";
+      /**
+       * <code>optional string portrait = 7;</code>
+       */
+      public String getPortrait() {
+        Object ref = portrait_;
+        if (!(ref instanceof String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          String s = bs.toStringUtf8();
+          portrait_ = s;
+          return s;
+        } else {
+          return (String) ref;
+        }
+      }
+      /**
+       * <code>optional string portrait = 7;</code>
+       */
+      public com.google.protobuf.ByteString
+          getPortraitBytes() {
+        Object ref = portrait_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (String) ref);
+          portrait_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string portrait = 7;</code>
+       */
+      public Builder setPortrait(
+          String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        portrait_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string portrait = 7;</code>
+       */
+      public Builder clearPortrait() {
+        
+        portrait_ = getDefaultInstance().getPortrait();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string portrait = 7;</code>
+       */
+      public Builder setPortraitBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        portrait_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:Friend)
+    }
+
+    // @@protoc_insertion_point(class_scope:Friend)
+    private static final Friend DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new Friend();
+    }
+
+    public static Friend getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Friend>
+        PARSER = new com.google.protobuf.AbstractParser<Friend>() {
+      public Friend parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new Friend(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Friend> parser() {
+      return PARSER;
+    }
+
+    @Override
+    public com.google.protobuf.Parser<Friend> getParserForType() {
+      return PARSER;
+    }
+
+    public Friend getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -12094,20 +14500,35 @@ public final class HDIMProtocol {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_UserSetting_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_GetUserSettingRequest_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_GetUserSettingRequest_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_GetUserSettingResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_GetUserSettingResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_ModifyUserSettingRequest_descriptor;
+    internal_static_ModifyUserSettingResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_ModifyUserSettingRequest_fieldAccessorTable;
+      internal_static_ModifyUserSettingResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_BlackUserRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_BlackUserRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GetFriendsRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GetFriendsRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_GetFriendsResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_GetFriendsResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Friend_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Friend_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -12144,22 +14565,32 @@ public final class HDIMProtocol {
       "messages\030\001 \003(\0132\010.Message\022\017\n\007current\030\002 \001(" +
       "\004\022\014\n\004head\030\003 \001(\004\"\006\n\004Ping\"\006\n\004Pong\"N\n\013UserS" +
       "etting\022\027\n\017userSettingType\030\001 \001(\r\022\013\n\003key\030\002" +
-      " \001(\t\022\r\n\005value\030\003 \001(\r\022\n\n\002dt\030\004 \001(\004\"0\n\025GetUs" +
-      "erSettingRequest\022\027\n\017userSettingHead\030\001 \001(" +
-      "\004\"<\n\026GetUserSettingResponse\022\"\n\014userSetti",
-      "ngs\030\001 \003(\0132\014.UserSetting\"O\n\030ModifyUserSet" +
-      "tingRequest\022\027\n\017userSettingType\030\001 \001(\r\022\013\n\003" +
-      "key\030\002 \001(\t\022\r\n\005value\030\003 \001(\r*m\n\tIMCommand\022\014\n" +
-      "\010RESERVED\020\000\022\t\n\005LOGIN\020\001\022\n\n\006LOGOUT\020\002\022\010\n\004PI" +
-      "NG\020\003\022\006\n\002MS\020\004\022\006\n\002MP\020\005\022\006\n\002MN\020\006\022\007\n\003USG\020\007\022\007\n" +
-      "\003USP\020\010\022\007\n\003USN\020\t* \n\010PlatForm\022\013\n\007ANDROID\020\000" +
-      "\022\007\n\003IOS\020\001*)\n\020ConversationType\022\n\n\006SIGNAL\020" +
-      "\000\022\t\n\005GROUP\020\001*}\n\022MessageContentType\022\013\n\007UN" +
-      "KNOWN\020\000\022\010\n\004TEXT\020\001\022\t\n\005SOUND\020\002\022\t\n\005IMAGE\020\003\022" +
-      "\014\n\010LOCATION\020\004\022\010\n\004FILE\020\005\022\t\n\005VIDEO\020\006\022\013\n\007ST",
-      "ICKER\020\007\022\n\n\006TYPING\020\010*V\n\022MessageSettingTyp" +
-      "e\022\021\n\rGLOBAL_SILENT\020\000\022\027\n\023CONVERSATION_SIL" +
-      "ENT\020\001\022\024\n\020CONVERSATION_TOP\020\002b\006proto3"
+      " \001(\t\022\r\n\005value\030\003 \001(\t\022\n\n\002dt\030\004 \001(\004\"<\n\026GetUs" +
+      "erSettingResponse\022\"\n\014userSettings\030\001 \003(\0132" +
+      "\014.UserSetting\"\'\n\031ModifyUserSettingRespon",
+      "se\022\n\n\002dt\030\001 \001(\004\"/\n\020BlackUserRequest\022\013\n\003ui" +
+      "d\030\001 \001(\t\022\016\n\006status\030\002 \001(\r\"+\n\021GetFriendsReq" +
+      "uest\022\026\n\016userFriendHead\030\001 \001(\004\".\n\022GetFrien" +
+      "dsResponse\022\030\n\007friends\030\001 \003(\0132\007.Friend\"\205\001\n" +
+      "\006Friend\022\013\n\003uid\030\001 \001(\t\022\r\n\005state\030\002 \001(\005\022\021\n\tu" +
+      "pdate_dt\030\003 \001(\003\022\r\n\005alias\030\004 \001(\t\022\025\n\rfriend_" +
+      "origin\030\005 \001(\005\022\024\n\014display_name\030\006 \001(\t\022\020\n\010po" +
+      "rtrait\030\007 \001(\t*\315\001\n\tIMCommand\022\014\n\010RESERVED\020\000" +
+      "\022\t\n\005LOGIN\020\001\022\n\n\006LOGOUT\020\002\022\010\n\004PING\020\003\022\006\n\002MS\020" +
+      "\004\022\006\n\002MP\020\005\022\006\n\002MN\020\006\022\006\n\002MR\020\007\022\007\n\003FAR\020\010\022\007\n\003FH",
+      "R\020\t\022\007\n\003FRP\020\n\022\007\n\003FRN\020\013\022\007\n\003FQA\020\014\022\007\n\003FDL\020\r\022" +
+      "\006\n\002FP\020\016\022\006\n\002FN\020\017\022\007\n\003BLU\020\020\022\007\n\003MFA\020\021\022\007\n\003USG" +
+      "\020\022\022\007\n\003USP\020\023\022\007\n\003USN\020\024* \n\010PlatForm\022\013\n\007ANDR" +
+      "OID\020\000\022\007\n\003IOS\020\001*)\n\020ConversationType\022\n\n\006SI" +
+      "GNAL\020\000\022\t\n\005GROUP\020\001*}\n\022MessageContentType\022" +
+      "\013\n\007UNKNOWN\020\000\022\010\n\004TEXT\020\001\022\t\n\005SOUND\020\002\022\t\n\005IMA" +
+      "GE\020\003\022\014\n\010LOCATION\020\004\022\010\n\004FILE\020\005\022\t\n\005VIDEO\020\006\022" +
+      "\013\n\007STICKER\020\007\022\n\n\006TYPING\020\010*\253\001\n\017UserSetting" +
+      "Type\022\031\n\025USER_SETTING_RESERVED\020\000\022\021\n\rGLOBA" +
+      "L_SILENT\020\001\022\027\n\023CONVERSATION_SILENT\020\002\022\024\n\020C",
+      "ONVERSATION_TOP\020\003\022%\n!GLOBAL_HIDDEN_NOTIF" +
+      "ICATION_DETAIL\020\004\022\024\n\020USER_FRIEND_STAR\020\005b\006" +
+      "proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -12257,24 +14688,42 @@ public final class HDIMProtocol {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserSetting_descriptor,
         new String[] { "UserSettingType", "Key", "Value", "Dt", });
-    internal_static_GetUserSettingRequest_descriptor =
-      getDescriptor().getMessageTypes().get(14);
-    internal_static_GetUserSettingRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_GetUserSettingRequest_descriptor,
-        new String[] { "UserSettingHead", });
     internal_static_GetUserSettingResponse_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_GetUserSettingResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GetUserSettingResponse_descriptor,
         new String[] { "UserSettings", });
-    internal_static_ModifyUserSettingRequest_descriptor =
-      getDescriptor().getMessageTypes().get(16);
-    internal_static_ModifyUserSettingRequest_fieldAccessorTable = new
+    internal_static_ModifyUserSettingResponse_descriptor =
+      getDescriptor().getMessageTypes().get(15);
+    internal_static_ModifyUserSettingResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_ModifyUserSettingRequest_descriptor,
-        new String[] { "UserSettingType", "Key", "Value", });
+        internal_static_ModifyUserSettingResponse_descriptor,
+        new String[] { "Dt", });
+    internal_static_BlackUserRequest_descriptor =
+      getDescriptor().getMessageTypes().get(16);
+    internal_static_BlackUserRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_BlackUserRequest_descriptor,
+        new String[] { "Uid", "Status", });
+    internal_static_GetFriendsRequest_descriptor =
+      getDescriptor().getMessageTypes().get(17);
+    internal_static_GetFriendsRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GetFriendsRequest_descriptor,
+        new String[] { "UserFriendHead", });
+    internal_static_GetFriendsResponse_descriptor =
+      getDescriptor().getMessageTypes().get(18);
+    internal_static_GetFriendsResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_GetFriendsResponse_descriptor,
+        new String[] { "Friends", });
+    internal_static_Friend_descriptor =
+      getDescriptor().getMessageTypes().get(19);
+    internal_static_Friend_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Friend_descriptor,
+        new String[] { "Uid", "State", "UpdateDt", "Alias", "FriendOrigin", "DisplayName", "Portrait", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

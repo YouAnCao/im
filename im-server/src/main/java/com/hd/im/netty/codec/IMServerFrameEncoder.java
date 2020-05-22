@@ -10,6 +10,6 @@ import io.netty.handler.codec.LengthFieldPrepender;
  **/
 public class IMServerFrameEncoder extends LengthFieldPrepender {
     public IMServerFrameEncoder() {
-        super(2);
+        super(4);
     }
 }
