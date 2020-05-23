@@ -8,9 +8,9 @@
         <version>2.2.7.RELEASE</version>
     </parent>
     <groupId>com.hd.im</groupId>
-    <artifactId>im-server</artifactId>
+    <artifactId>hd-im-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>im-server</name>
+    <name>hd-im-server</name>
     <description>imserver</description>
 
     <properties>
@@ -50,6 +50,11 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-httpclient</artifactId>
         </dependency>
 
         <dependency>

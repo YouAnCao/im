@@ -8,18 +8,18 @@ import io.netty.buffer.ByteBuf;
 import io.netty.util.Attribute;
 
 /**
- * @ClassName: AddFriendHandler
+ * @ClassName: AddFriendRequestHandler
  * @Description: 添加好友请求
  * @Author: Lyon.Cao
  * @Date: 2020/5/22 17:40
  * @Version: 1.0.0
  **/
 @Handler(HDIMProtocol.IMCommand.FAR)
-public class AddFriendHandler extends IMHandler {
+public class AddFriendRequestHandler extends IMHandler {
 
     @Override
     public int action(Attribute<UserSession> userSession, HDIMProtocol.MessagePack messagePack, ByteBuf payload) {
-
+        
         return 0;
     }
 }

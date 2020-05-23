@@ -14,7 +14,7 @@ feign:
 
 #redis配置
 redis:
-  host: 127.0.0.1
+  host: 192.168.0.126
   port: 6379
   password: 123456
   maxTotal: 200

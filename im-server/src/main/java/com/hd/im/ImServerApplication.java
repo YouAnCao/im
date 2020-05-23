@@ -1,14 +1,15 @@
 package com.hd.im;
 
+import com.hd.im.cache.MemorySessionStore;
+import com.hd.im.netty.channel.NettyChannelKeys;
 import com.hd.im.netty.codec.IMServerFrameDecoder;
 import com.hd.im.netty.codec.IMServerFrameEncoder;
 import com.hd.im.netty.codec.IMServerProtocolDecoder;
 import com.hd.im.netty.codec.IMServerProtocolEncoder;
 import com.hd.im.netty.handler.IMServerIdleHandler;
 import com.hd.im.netty.handler.IMServerMessagePackHandler;
+import com.im.core.entity.UserSession;
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
@@ -30,7 +31,6 @@ public class ImServerApplication {
     public static void main(String[] args) throws InterruptedException {
         SpringApplication.run(ImServerApplication.class, args);
 
-        final ByteBuf     limiter     = Unpooled.copiedBuffer("\r\n".getBytes());
         NioEventLoopGroup boosGroup   = new NioEventLoopGroup(1);
         NioEventLoopGroup workerGroup = new NioEventLoopGroup();
 
@@ -50,8 +50,15 @@ public class ImServerApplication {
 
                 @Override
                 public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-                    ctx.close();
-                    logger.error("", cause);
+                    if (ctx.channel().attr(NettyChannelKeys.USER_SESSION) != null) {
+                        UserSession session = ctx.channel().attr(NettyChannelKeys.USER_SESSION).get();
+                        if (session != null) {
+                            MemorySessionStore.getInstance().tickClient(session.getClientId());
+                        }
+                    }
+                    if (ctx.channel() != null && ctx.channel().isActive() || ctx.channel().isOpen()) {
+                        ctx.close();
+                    }
                 }
 
                 @Override

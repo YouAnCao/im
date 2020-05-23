@@ -20,30 +20,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="540e0ac2-ffde-460d-a6dc-2e27f93cb021" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/impl/friend/BlackFriendHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/impl/friend/DelFriendHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/impl/friend/FriendRequestHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/impl/friend/ModifyFriendAliasHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/impl/friend/PullFriendRequestHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/impl/user/GetUserInfoHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/impl/user/GetUserSettingHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/impl/user/PutUserSettingHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/im/core/entity/MessageBundle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/im/core/entity/MessageBundle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/im/core/proto/HDIMProtocol.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/im/core/proto/HDIMProtocol.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/im/core/proto/Tester.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/im/core/proto/Tester.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/ImServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/ImServerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/HandlerContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/HandlerContext.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/impl/GetUserSettingHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/impl/friend/PullFriendListHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/impl/PullMessageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/impl/message/PullMessageHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/impl/PutUserSettingHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/impl/friend/AddFriendHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/impl/SendMessageHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/impl/message/SendMessageHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/impl/ServerHeartbeatHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/impl/server/ServerHeartbeatHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/impl/UserLoginHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/impl/user/UserLoginHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/netty/codec/IMServerFrameDecoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/netty/codec/IMServerFrameDecoder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/netty/codec/IMServerFrameEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/netty/codec/IMServerFrameEncoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/cache/MemorySessionStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/cache/MemorySessionStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/impl/friend/AddFriendHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/impl/friend/AddFriendHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/impl/friend/FriendRequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/impl/friend/FriendRequestHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/impl/friend/PullFriendListHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/handler/impl/friend/PullFriendListHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/impl/MessageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/impl/MessageServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/impl/UserSettingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/UserSettingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/impl/UserSettingServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/impl/UserSettingServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/UserFriendService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/UserFriendService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/impl/UserFriendServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/java/com/hd/im/service/impl/UserFriendServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../im-server/src/main/resources/application-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../im-server/src/main/resources/application-dev.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../proto/src/main/resources/HDIMProtocol.proto" beforeDir="false" afterPath="$PROJECT_DIR$/../proto/src/main/resources/HDIMProtocol.proto" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,7 +71,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/java/com/hd/im/commons" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/com/im/core/utils" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.34244373" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
@@ -220,7 +208,12 @@
       <workItem from="1589936310275" duration="1914000" />
       <workItem from="1590022824735" duration="7081000" />
       <workItem from="1590109756461" duration="4057000" />
-      <workItem from="1590127836210" duration="3487000" />
+      <workItem from="1590127836210" duration="3488000" />
+      <workItem from="1590195657438" duration="2083000" />
+      <workItem from="1590218653085" duration="290000" />
+      <workItem from="1590219079226" duration="230000" />
+      <workItem from="1590219331734" duration="328000" />
+      <workItem from="1590219978112" duration="1775000" />
     </task>
     <servers />
   </component>
@@ -244,38 +237,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="533" y="52" key="#Java/0.0.1920.1040@0.0.1920.1040" timestamp="1590127879472" />
-    <state x="440" y="94" key="#Project_Structure" timestamp="1589115301292">
+    <state x="440" y="94" key="#Project_Structure" timestamp="1590219084008">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="440" y="94" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1589115301292" />
+    <state x="440" y="94" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1590219084008" />
     <state x="765" y="204" key="#com.intellij.ide.util.MemberChooser" timestamp="1589765567630">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="204" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1589765567630" />
-    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1589196879429">
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1590222727490">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589196879429" />
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590222727490" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1589160566900">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589160566900" />
-    <state width="1877" height="361" key="GridCell.Tab.0.bottom" timestamp="1590143199300">
+    <state width="1877" height="425" key="GridCell.Tab.0.bottom" timestamp="1590222895871">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="361" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590143199300" />
-    <state width="1877" height="361" key="GridCell.Tab.0.center" timestamp="1590143199299">
+    <state width="1877" height="425" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590222895871" />
+    <state width="1877" height="425" key="GridCell.Tab.0.center" timestamp="1590222895871">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="361" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590143199299" />
-    <state width="1877" height="361" key="GridCell.Tab.0.left" timestamp="1590143199299">
+    <state width="1877" height="425" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590222895871" />
+    <state width="1877" height="425" key="GridCell.Tab.0.left" timestamp="1590222895871">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="361" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590143199299" />
-    <state width="1877" height="361" key="GridCell.Tab.0.right" timestamp="1590143199300">
+    <state width="1877" height="425" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590222895871" />
+    <state width="1877" height="425" key="GridCell.Tab.0.right" timestamp="1590222895871">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="361" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590143199300" />
+    <state width="1877" height="425" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590222895871" />
     <state width="1877" height="114" key="GridCell.Tab.1.bottom" timestamp="1589687803763">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

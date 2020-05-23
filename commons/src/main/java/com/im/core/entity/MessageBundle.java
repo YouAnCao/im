@@ -1,6 +1,5 @@
 package com.im.core.entity;
 
-import com.google.protobuf.InvalidProtocolBufferException;
 import com.im.core.proto.HDIMProtocol;
 
 /**

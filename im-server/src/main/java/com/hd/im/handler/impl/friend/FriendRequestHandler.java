@@ -19,6 +19,7 @@ public class FriendRequestHandler extends IMHandler {
 
     @Override
     public int action(Attribute<UserSession> userSession, HDIMProtocol.MessagePack messagePack, ByteBuf payload) {
+
         return 0;
     }
 }

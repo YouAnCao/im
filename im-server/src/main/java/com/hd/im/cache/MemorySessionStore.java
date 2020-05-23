@@ -6,7 +6,6 @@ import com.hd.im.netty.channel.NettyChannelKeys;
 import com.im.core.constants.RedisConstants;
 import com.im.core.entity.UserSession;
 import com.im.core.redis.RedisStandalone;
-import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 
 import java.util.ArrayList;
