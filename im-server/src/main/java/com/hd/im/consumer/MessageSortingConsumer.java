@@ -40,8 +40,8 @@ public class MessageSortingConsumer {
                 try {
                     List<String> data = RedisStandalone.REDIS.brpop(10000, RedisConstants.MESSAGE_SORTING);
                     if (data != null && data.size() > 0) {
-                        String               val            = data.get(1);
-                        PublishMessage       publishMessage = GSONParser.getInstance().fromJson(val, PublishMessage.class);
+                          String               val            = data.get(1);
+                        PublishMessage     publishMessage = GSONParser.getInstance().fromJson(val, PublishMessage.class);
                         HDIMProtocol.Message message        = publishMessage.toMessage();
                         MessageService       messageService = ApplicationContextHolder.getApplicationContext().getBean("messageServiceImpl", MessageService.class);
                         messageService.sendMessage(publishMessage);
